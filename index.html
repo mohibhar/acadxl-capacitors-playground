@@ -1094,6 +1094,15 @@ q27:FG.svg(330,170,
   +FG.w('250,24 250,34')+FG.res(250,56,90)+FG.w('250,78 250,105')+FG.cap(250,112,90)+FG.w('250,119 250,146')
   +FG.t(30,62,'E','#a8a2cc',12)+FG.t(30,112,'r','#a8a2cc',12)
   +FG.t(190,82,'r₂','#a8a2cc',12,'start')+FG.t(270,60,'r₁','#a8a2cc',12,'start')+FG.t(270,116,'C','#a8a2cc',12,'start')),
+q31:FG.svg(340,180,
+  FG.w('48,40 105,40')+FG.cap(112,40)+FG.w('119,40 174,40')+FG.dot(180,40,ORN)+FG.w('186,40 235,40')+FG.cap(242,40)+FG.w('249,40 300,40 300,150')
+  +FG.w('48,40 48,75')+FG.bat(48,82,90)+FG.w('48,89 48,150 111,150')
+  +FG.cap(118,150)+FG.w('125,150 174,150')+FG.dot(180,150,GRN)+FG.w('186,150 235,150')+FG.cap(242,150)+FG.w('249,150 300,150')
+  +FG.w('180,44 180,78')+FG.dot(180,84,'#b9b2e0')+FG.dot(180,106,'#b9b2e0')+'<line x1="180" y1="106" x2="194" y2="86"/>'+FG.w('180,110 180,146')
+  +FG.t(112,24,'3 µF','#a8a2cc',11)+FG.t(242,24,'6 µF','#a8a2cc',11)
+  +FG.t(118,170,'12 µF','#a8a2cc',11)+FG.t(242,170,'6 µF','#a8a2cc',11)
+  +FG.t(196,44,'X',ORN,12,'start')+FG.t(196,154,'Y',GRN,12,'start')
+  +FG.t(206,100,'S','#a8a2cc',12,'start')+FG.t(26,86,'12 V','#a8a2cc',11)),
 q28:FG.svg(280,180,
   FG.t(140,16,'+80 µC',ORN,12)+FG.w('140,22 140,45')+FG.cap(140,52,90)+FG.w('140,59 140,84')+FG.dot(140,84,'#b6afdd')
   +FG.w('140,84 90,84 90,105')+FG.cap(90,112,90)+FG.w('90,119 90,144')
@@ -1467,7 +1476,8 @@ registerModule({
       E('p',{class:'tip',html:'Check: series C<sub>eq</sub> is always <b>smaller than the smallest</b> C; parallel C<sub>eq</sub> is always <b>bigger than the biggest</b>.'})]);
     host.addJee(`<p><b>JEE Main 2017 (famous):</b> need 2 µF rated 1 kV from 1 µF caps rated 300 V each ⇒ 4 in series per string (250 V each) × 8 strings in parallel = <b>32 capacitors minimum</b>.</p>
       <p class="q"><b>n identical caps C:</b> series → C/n, parallel → nC; ratio of extremes = n². From 3 different caps you can build <b>8 distinct values</b> — Advanced has asked for the min/max.</p>
-      <p><b>AIEEE 2005:</b> n plates stacked alternately wired ⇒ <b>(n−1)C</b> — count <i>gaps</i>, not plates.</p>`);
+      <p><b>AIEEE 2005:</b> n plates stacked alternately wired ⇒ <b>(n−1)C</b> — count <i>gaps</i>, not plates.</p>
+      <p class="q"><b>From the AcadXL classroom (12 Aug):</b> 3 µF + 6 µF in series on 12 V ⇒ the voltage splits <b>8 V : 4 V</b> (inverse to C). The 6-plate alternate stack from class ⇒ C<sub>eq</sub> = 3C, the 8-plate one ⇒ 5C/2.</p>`);
     function frame(t,dt){
       const Cs=[s1.get(),s2.get(),s3.get()], V=sV.get();
       let Ceq,Qs,Vs;
@@ -1568,7 +1578,8 @@ registerModule({
       E('p',{class:'tip',html:'The loss is <b>independent of resistance</b> — bigger R wastes the same total, just more slowly. With R→0 it leaves as electromagnetic radiation instead. Exactly <b>50%</b> efficiency, always.'})]);
     host.addJee(`<p><b>AIEEE 2005:</b> capacitor discharged into a heater coil in mass m, specific heat s: ½CV² = msΔT ⇒ <b>V = √(2msΔT/C)</b>. Dimension-check the options first — it kills two of them instantly.</p>
       <p class="q"><b>Energy density (Advanced workhorse):</b> u = ½ε₀E² J/m³ lives <b>in the field itself</b> — integrate it over the gap and you recover ½CV². Used for spherical capacitors and field-energy region questions.</p>
-      <p><b>Battery bookkeeping:</b> work by battery = QV (NOT ½QV). The ½ belongs to the <i>capacitor</i>. Mixing these two is the single most common energy error in Mains.</p>`);
+      <p><b>Battery bookkeeping:</b> work by battery = QV (NOT ½QV). The ½ belongs to the <i>capacitor</i>. Mixing these two is the single most common energy error in Mains.</p>
+      <p class="q"><b>Class ledger (16 Aug):</b> H = ΣW<sub>battery</sub> − ΣΔU with W<sub>b</sub> = qε. Several resistors? Split the heat in the ratio of i²R — in the class 3R-∥-6R example the 3R coil takes <b>4/9 of Q²/2C</b>.</p>`);
     function frame(t){
       const Cv=sC.get(), V=sV.get();
       const ph=(t%6)/6, fr=ph<0.83?ph/0.83:1;     // charging fraction sweep, hold at end
@@ -1646,7 +1657,8 @@ registerModule({
       • Battery ON (V fixed): C↑K, Q↑K, V=, E=, <b>U↑K</b> (battery supplies the extra).<br>
       • Battery OFF (Q fixed): C↑K, Q=, V↓K, E↓K, <b>U↓K</b> (field does work pulling the slab in).</p>
       <p class="q"><b>JEE Main 2018:</b> 90 pF + 20 V battery, K = 5/3 inserted ⇒ bound charge Q<sub>b</sub> = Q(1−1/K) = 3 nC × 2/5 = <b>1.2 nC</b>. Use the NEW free charge KC₀V, not the old one!</p>
-      <p><b>AIEEE 2007:</b> remove the slab and re-insert it (isolated capacitor): net work = <b>zero</b> — electrostatic forces are conservative; the field pulls the slab back in.</p>`);
+      <p><b>AIEEE 2007:</b> remove the slab and re-insert it (isolated capacitor): net work = <b>zero</b> — electrostatic forces are conservative; the field pulls the slab back in.</p>
+      <p class="q"><b>Class table, battery ON (20 Aug):</b> extra charge drawn <b>Δq = (K−1)CV</b>, battery does W<sub>b</sub> = (K−1)CV², stored energy rises only ½(K−1)CV² — the other half is heat. And σ<sub>b</sub> = σ₀(1−1/K) holds for <b>every</b> capacitor shape.</p>`);
     function frame(t,dt){
       inFrac+=(tgt-inFrac)*Math.min(1,dt*4);
       const K=sK.get(), modeV=seg.get()==='v';
@@ -1750,7 +1762,7 @@ registerModule({
       sX.el.style.display=mode==='part'?'':'none';
     }
     sync();
-    host.addPanel('Key formulas',[FX('side-by-side:&nbsp; '+EM('C')+' = '+FR('C₀(K₁+K₂)','2')+' &nbsp;·&nbsp; stacked:&nbsp; '+EM('C')+' = '+FR('2C₀K₁K₂','K₁+K₂'),1),FX('metal slab:&nbsp; '+EM('C')+' = '+FR('ε₀'+MI('A'),MI('d')+'−'+MI('t'))+' &nbsp;·&nbsp; slab force:&nbsp; '+EM2('F')+' = '+FR('ε₀'+MI('b')+'(K−1)'+MI('V')+'²','2'+MI('d')),1)]);
+    host.addPanel('Key formulas',[FX('side-by-side:&nbsp; '+EM('C')+' = '+FR('C₀(K₁+K₂)','2')+' &nbsp;·&nbsp; stacked:&nbsp; '+EM('C')+' = '+FR('2C₀K₁K₂','K₁+K₂'),1),FX('metal slab:&nbsp; '+EM('C')+' = '+FR('ε₀'+MI('A'),MI('d')+'−'+MI('t'))+' &nbsp;·&nbsp; slab force:&nbsp; '+EM2('F')+' = '+FR('ε₀'+MI('b')+'(K−1)'+MI('V')+'²','2'+MI('d')),1),FX('slab t in gap d:&nbsp; '+EM('C')+' = '+FR('ε₀'+MI('A'),MI('d')+'−'+MI('t')+'+'+MI('t')+'/'+MI('K'))+' &nbsp;(metal = K→∞ limit)',1)]);
     const ro=host.Readouts([
       {key:'c',label:'C / C₀ (vs empty capacitor)',hl:true},
       {key:'f',label:'Formula in play'},
@@ -1876,7 +1888,8 @@ registerModule({
     host.addPanel('After connection',[ro.el]);
     host.addJee(`<p><b>IIT-JEE 2011:</b> 2 µF charged, dumped onto uncharged 8 µF ⇒ fraction lost = C₂/(C₁+C₂) = <b>80%</b>. Uncharged partner of equal C ⇒ exactly 50%.</p>
       <p class="q"><b>JEE Main 2013:</b> joined oppositely, final V = 0 ⇒ total charge zero ⇒ C₁V₁ = C₂V₂ ⇒ 120C₁ = 200C₂ ⇒ <b>3C₁ = 5C₂</b>.</p>
-      <p><b>Why energy MUST be lost:</b> ΔU = ½C₁C₂(V₁−V₂)²/(C₁+C₂) is independent of resistance. R→0 doesn't save it — the loss escapes as radiation. Only V₁ = V₂ (no flow) avoids it.</p>`);
+      <p><b>Why energy MUST be lost:</b> ΔU = ½C₁C₂(V₁−V₂)²/(C₁+C₂) is independent of resistance. R→0 doesn't save it — the loss escapes as radiation. Only V₁ = V₂ (no flow) avoids it.</p>
+      <p class="q"><b>Class shortcut (16 Aug):</b> heat after closing ANY switch = <b>½C<sub>eq</sub>(ΔV<sub>switch</sub>)²</b> — C<sub>eq</sub> seen across the open switch with batteries shorted and capacitors treated as uncharged. One line, no integrals.</p>`);
     function frame(t,dt){
       const C1=s1.get(),V1=sv1.get(),C2=s2.get(),V2=sv2.get(),s=pol.get();
       const Vf=(C1*V1+s*C2*V2)/(C1+C2);
@@ -1961,7 +1974,7 @@ registerModule({
     const seg=host.Segment({label:'Mode',options:[{v:'ch',label:'Charging'},{v:'dis',label:'Discharging'}],value:'ch',onChange:()=>{t0=lastT;}});
     host.addPanel('Controls',[sR.el,sC.el,sV.el,seg.el,
       E('p',{class:'tip',html:'Switching mode restarts the clock. Use <b>Speed</b> (under the canvas) to slow the first τ right down — the curve is steepest at t = 0, where i = V/R as if C were a plain wire.'})]);
-    host.addPanel('Key formulas',[FX(MI('q')+' = '+MI('CV')+'(1 − e<sup>−t/τ</sup>) &nbsp;&nbsp; '+MI('i')+' = '+FR(MI('V'),MI('R'))+'e<sup>−t/τ</sup>'),FX(EM('τ')+' = '+MI('RC')+' &nbsp;·&nbsp; t<sub>½</sub> = 0.693'+EM('τ')+' &nbsp;·&nbsp; heat in full charge = ½'+MI('CV')+'²',1)]);
+    host.addPanel('Key formulas',[FX(MI('q')+' = '+MI('CV')+'(1 − e<sup>−t/τ</sup>) &nbsp;&nbsp; '+MI('i')+' = '+FR(MI('V'),MI('R'))+'e<sup>−t/τ</sup>'),FX(EM('τ')+' = '+MI('RC')+' &nbsp;·&nbsp; t<sub>½</sub> = 0.693'+EM('τ')+' &nbsp;·&nbsp; heat in full charge = ½'+MI('CV')+'²',1),FX('t→0⁺: capacitor ≡ plain wire &nbsp;·&nbsp; t→∞: capacitor ≡ open switch',1)]);
     const ro=host.Readouts([
       {key:'tau',label:'Time constant τ = RC',unit:'s',hl:true},
       {key:'q',label:'q(t)',unit:'µC'},
@@ -1973,7 +1986,8 @@ registerModule({
     host.addJee(`<p><b>IIT-JEE 2005:</b> when is V_C = 3V_R? Use V_C + V_R = V₀ always ⇒ e<sup>−t/τ</sup> = ¼ ⇒ <b>t = τ ln 4</b>. The constraint "voltages add to V₀" is the fastest route in every charging problem.</p>
       <p class="q"><b>IIT-JEE 2010:</b> reduce the network FIRST (2 MΩ ∥ 2 MΩ = 1 MΩ; 2 µF ∥ 2 µF = 4 µF ⇒ τ = 4 s), then 10(1−e<sup>−t/4</sup>) = 4 ⇒ t = 4·ln(5/3) = <b>2 s</b>.</p>
       <p><b>AIEEE 2011:</b> t½ ∝ C<sub>eq</sub>: two caps in parallel halve to 10 s ⇒ in series (C/4 of parallel) ⇒ <b>2.5 s</b>.</p>
-      <p><b>Energy zinger:</b> during a full charge, heat lost in R = ½CV² <b>regardless of R</b> — the battery's QV splits 50:50 for ever.</p>`);
+      <p><b>Energy zinger:</b> during a full charge, heat lost in R = ½CV² <b>regardless of R</b> — the battery's QV splits 50:50 for ever.</p>
+      <p class="q"><b>Class rules (21–22 Aug):</b> at t→0⁺ a capacitor is a plain <b>wire</b>, at t→∞ an <b>open switch</b> — solve both limits before touching exponentials. Heat grows as H(t) = (Q²/2C)(1−e<sup>−2t/RC</sup>). Real dielectrics leak: q = Q·e<sup>−t/ρKε₀</sup>, a decay that doesn't depend on plate geometry at all.</p>`);
     function frame(t,dt){
       lastT=t;
       const R=sR.get()*1000, Cv=sC.get()*1e-6, V=sV.get(), tau=R*Cv;
@@ -2042,8 +2056,8 @@ registerModule({
   sub:'In DC steady state a capacitor branch carries <b>zero current</b>. Strategy: erase capacitor branches → solve currents → read node potentials → put capacitors back: <b>Q = C × (node ΔV)</b>.',
   aspect:0.82,
   build(host){
-    let mode='rc2';
-    const seg=host.Segment({label:'Circuit',options:[{v:'rc2',label:'C across R₂'},{v:'bridge',label:'Wheatstone bridge'},{v:'bleed',label:'Sneaky resistor'}],value:'rc2',onChange:v=>{mode=v;sync();}});
+    let mode='rc2', swProg=0;
+    const seg=host.Segment({label:'Circuit',options:[{v:'rc2',label:'C across R₂'},{v:'bridge',label:'Wheatstone bridge'},{v:'bleed',label:'Sneaky resistor'},{v:'sw',label:'Charge thru switch'}],value:'rc2',onChange:v=>{mode=v;sync();}});
     const sV=host.Slider({label:'Battery V',min:2,max:12,step:0.5,value:10,unit:'V'});
     const sR1=host.Slider({label:'R₁',min:1,max:10,step:0.5,value:3,unit:'Ω'});
     const sR2=host.Slider({label:'R₂',min:1,max:10,step:0.5,value:6,unit:'Ω'});
@@ -2051,15 +2065,17 @@ registerModule({
     const sB2=host.Slider({label:'C₂ (top-right arm)',min:1,max:10,step:0.5,value:4,unit:'µF'});
     const sB3=host.Slider({label:'C₃ (bottom-left arm)',min:1,max:10,step:0.5,value:3,unit:'µF'});
     const sB4=host.Slider({label:'C₄ (bottom-right arm)',min:1,max:10,step:0.5,value:6,unit:'µF'});
-    host.addPanel('Controls',[seg.el,sV.el,sR1.el,sR2.el,sB1.el,sB2.el,sB3.el,sB4.el,
+    const ckS=host.Check({label:'Close the switch S',value:false,onChange:()=>{swProg=0;}});
+    host.addPanel('Controls',[seg.el,sV.el,sR1.el,sR2.el,sB1.el,sB2.el,sB3.el,sB4.el,ckS.el,
       E('p',{class:'tip',html:'<b>Bridge mode:</b> when C₁/C₂ = C₃/C₄ the middle capacitor\'s charge hits ZERO — balance it live (try C₁=2, C₂=4, C₃=3, C₄=6).'})]);
     function sync(){
-      const b=mode==='bridge';
-      sR1.el.style.display=b?'none':''; sR2.el.style.display=b?'none':'';
+      const b=mode==='bridge', sw=mode==='sw';
+      sR1.el.style.display=(b||sw)?'none':''; sR2.el.style.display=(b||sw)?'none':'';
       [sB1,sB2,sB3,sB4].forEach(s=>s.el.style.display=b?'':'none');
+      ckS.el.style.display=sw?'':'none';
     }
     sync();
-    host.addPanel('Key formulas',[FX('steady state:&nbsp; '+EM('i')+'<sub>capacitor branch</sub> = 0'),FX('balanced bridge:&nbsp; '+FR('C₁','C₂')+' = '+FR('C₃','C₄')+' ⇒ delete the bridge element',1)]);
+    host.addPanel('Key formulas',[FX('steady state:&nbsp; '+EM('i')+'<sub>capacitor branch</sub> = 0'),FX('balanced bridge:&nbsp; '+FR('C₁','C₂')+' = '+FR('C₃','C₄')+' ⇒ delete the bridge element',1),FX('traversal: V<sub>A</sub> − '+FR(MI('q'),MI('C'))+' = V<sub>B</sub> &nbsp;·&nbsp; mesh: Σε ± Σ'+FR(MI('q'),MI('C'))+' = 0 &nbsp;·&nbsp; Δq<sub>sw</sub> = C<sub>eq</sub>·ΔV<sub>sw</sub>',1)]);
     const ro=host.Readouts([
       {key:'a',label:'—',hl:true},{key:'b',label:'—'},{key:'c',label:'—'},
     ]);
@@ -2073,10 +2089,11 @@ registerModule({
     ]);
     host.addJee(`<p><b>JEE Main 2017:</b> battery (E, r) + R₂, capacitor branch hanging via r₁: steady state i through C is zero ⇒ no drop on r₁ ⇒ <b>Q = CEr₂/(r+r₂)</b>. r₁ is a decoy!</p>
       <p class="q"><b>IIT-JEE 2007 (switch between two ladders):</b> caps divide V by 1/C, resistors by R. X sat at 3 V, Y at 6 V; closing S equalises them at 6 V and <b>27 µC</b> flows through the switch. Track NODE charge, not one capacitor.</p>
-      <p><b>Balanced bridge reflex:</b> C₁/C₂ = C₃/C₄ ⇒ bridge element carries nothing ⇒ delete it. Works identically for R, C, even inductors — symmetry is the real lesson.</p>`);
+      <p><b>Balanced bridge reflex:</b> C₁/C₂ = C₃/C₄ ⇒ bridge element carries nothing ⇒ delete it. Works identically for R, C, even inductors — symmetry is the real lesson.</p>
+      <p class="q"><b>Class toolkit (13–14 Aug):</b> traversal V<sub>A</sub> − q/C = V<sub>B</sub>; mesh Σε ± Σq/C = 0; <b>Thevenin works for capacitors</b> (ε<sub>eq</sub>, C<sub>eq</sub>); symmetry: the 5-10-5-10-5 µF bridge ⇒ C<sub>eq</sub> = 7 µF, the capacitor cube ⇒ C<sub>AB</sub> = 12C/7. Mixed R+C: solve the resistive circuit first, then read capacitor charges off the node potentials.</p>`);
     function frame(t){
       const r=uRows([1.65,1]);
-      if(mode==='rc2')rc2Zone(r,t); else if(mode==='bridge')bridgeZone(r,t); else bleedZone(r,t);
+      if(mode==='rc2')rc2Zone(r,t); else if(mode==='bridge')bridgeZone(r,t); else if(mode==='sw')swZone(r,t); else bleedZone(r,t);
     }
     function rc2Zone(r,t){
       const z=r[0]; uZone(z,'#000');
@@ -2186,7 +2203,63 @@ registerModule({
         Draw.label(x0b+w+10,y+bh/2+4,rw[0]+' — '+fmt(rw[1]<0.01?0:rw[1],2)+' V',rw[2],'600 11px -apple-system,sans-serif');
       });
     }
-    return {frame,reset(){}};
+    function swZone(r,t){
+      const z=r[0]; uZone(z,'#000');
+      const V=sV.get(), Ca=3,Cb=6,Cc=12,Cd=6, closed=ckS.get();
+      if(closed&&swProg<1)swProg=Math.min(1,swProg+0.02);
+      const pr=closed?swProg:0;
+      const VX0=V/3, VY0=2*V/3;                       // open-switch node potentials
+      const xN=(Ca+Cc)*V/(Ca+Cb+Cc+Cd);               // common potential after closing
+      const VX=lerp(VX0,xN,pr), VY=lerp(VY0,xN,pr);
+      const qa=Ca*(V-VX), qb=Cb*VX, qc=Cc*(V-VY), qd=Cd*VY;
+      const Ceq=(Ca+Cb)*(Cc+Cd)/(Ca+Cb+Cc+Cd), dV=VY0-VX0, dqF=Ceq*dV;
+      uTitle(z,closed?'SWITCH CLOSED — the X and Y islands re-balance to a common '+fmt(xN,2)+' V':'FROM THE 13 AUG CLASS — steady state first, THEN close S. How much charge crosses?',closed?C.green:C.orange);
+      const yT=z.y+50, yB=z.y+z.h-50, x0=z.x+78, x1=z.x+z.w-66;
+      const xc1=lerp(x0,x1,0.32), xc2=lerp(x0,x1,0.74), swx=(xc1+xc2)/2+ (lerp(x0,x1,0.53)-(xc1+xc2)/2);
+      // rails + battery
+      Kit.wire([[x0,yT],[xc1-5,yT]]); Kit.wire([[xc1+5,yT],[swx-4,yT]]); Kit.node(swx,yT);
+      Kit.wire([[swx+4,yT],[xc2-5,yT]]); Kit.wire([[xc2+5,yT],[x1,yT]]);
+      Kit.wire([[x0,yB],[xc1-5,yB]]); Kit.wire([[xc1+5,yB],[swx-4,yB]]); Kit.node(swx,yB);
+      Kit.wire([[swx+4,yB],[xc2-5,yB]]); Kit.wire([[xc2+5,yB],[x1,yB]]);
+      Kit.wire([[x0,yT],[x0,(yT+yB)/2-16]]); Kit.wire([[x0,(yT+yB)/2+16],[x0,yB]]);
+      Kit.wire([[x1,yT],[x1,yB]]);
+      Kit.battery(x0,(yT+yB)/2,false,false,fmt(V,1)+' V');
+      // capacitors with live charge labels (labels OFFSET from wires)
+      Kit.cap(xc1,yT,true,'',C.ink); Kit.cap(xc2,yT,true,'',C.ink);
+      Kit.cap(xc1,yB,true,'',C.ink); Kit.cap(xc2,yB,true,'',C.ink);
+      Draw.label(xc1,yT-22,'3 µF · '+fmt(qa,1)+' µC',C.mut,'700 11.5px -apple-system,sans-serif','center');
+      Draw.label(xc2,yT-22,'6 µF · '+fmt(qb,1)+' µC',C.mut,'700 11.5px -apple-system,sans-serif','center');
+      Draw.label(xc1,yB+30,'12 µF · '+fmt(qc,1)+' µC',C.mut,'700 11.5px -apple-system,sans-serif','center');
+      Draw.label(xc2,yB+30,'6 µF · '+fmt(qd,1)+' µC',C.mut,'700 11.5px -apple-system,sans-serif','center');
+      Draw.label(swx+10,yT-10,'X · '+fmt(VX,2)+' V',C.orange,'700 12px -apple-system,sans-serif');
+      Draw.label(swx+10,yB+20,'Y · '+fmt(VY,2)+' V',C.green,'700 12px -apple-system,sans-serif');
+      // the switch between X and Y
+      const sy1=yT+12, sy2=yB-12;
+      Kit.wire([[swx,yT],[swx,sy1]]); Kit.wire([[swx,sy2],[swx,yB]]);
+      ctx.save();ctx.strokeStyle=C.ink;ctx.lineWidth=2.4;ctx.lineCap='round';
+      Draw.dot(swx,sy1,3.4,'#b9b2e0',0); Draw.dot(swx,sy2,3.4,'#b9b2e0',0);
+      ctx.beginPath();ctx.moveTo(swx,sy2);
+      if(closed)ctx.lineTo(swx,sy1); else ctx.lineTo(swx+15,sy2-26);
+      ctx.stroke();ctx.restore();
+      Draw.label(swx+20,(sy1+sy2)/2+4,'S',C.mut,'700 12px -apple-system,sans-serif');
+      if(closed&&pr<1) Kit.flow([[swx,sy2],[swx,sy1]],-t*80,C.yellow,30);
+      ro.set('a',closed?'<b>common V</b> = '+fmt(xN,2)+' V':'<b>V_X</b> = '+fmt(VX0,2)+' V, <b>V_Y</b> = '+fmt(VY0,2)+' V');
+      ro.set('b','<b>Δq through S</b> = '+fmt(Math.abs(qb-qa)*1,1)+' / '+fmt(dqF,1)+' µC');
+      ro.set('c','<b>shortcut</b>: C_eq·ΔV = '+fmt(Ceq,1)+' µF × '+fmt(dV,1)+' V = '+fmt(dqF,1)+' µC');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'CHARGE ON EACH CAPACITOR — outline = before closing S, fill = now','#a8a2cc');
+      const names=['3 µF (top-L)','6 µF (top-R)','12 µF (bot-L)','6 µF (bot-R)'];
+      const before=[2*V,2*V,4*V,4*V], now=[qa,qb,qc,qd], cols=[C.blue,C.violet,C.green,C.orange];
+      const maxQ=Math.max(...before,...now)*1.15, bw=Math.min(86,g.w/7), y0=g.y+g.h-30, hMax=g.h-66;
+      now.forEach((v,i)=>{ const xq=g.x+g.w*(i+1)/5-bw/2;
+        ctx.save();ctx.strokeStyle=cols[i];ctx.lineWidth=1.6;ctx.setLineDash([4,4]);
+        ctx.strokeRect(xq,y0-before[i]/maxQ*hMax,bw,before[i]/maxQ*hMax);ctx.restore();
+        ctx.save();ctx.fillStyle=cols[i];ctx.globalAlpha=0.8;rrect(xq,y0-v/maxQ*hMax,bw,v/maxQ*hMax,5);ctx.fill();ctx.restore();
+        Draw.label(xq+bw/2,y0-Math.max(v,before[i])/maxQ*hMax-7,fmt(v,1),cols[i],'700 11.5px -apple-system,sans-serif','center');
+        Draw.label(xq+bw/2,y0+15,names[i],C.mut,'600 10.5px -apple-system,sans-serif','center');
+      });
+    }
+    return {frame,reset(){swProg=0;}};
   }
 });
 
@@ -2223,17 +2296,20 @@ const QBANK=[
 {"id":"q27","source":"JEE Main 2017","topic":"circuit","difficulty":"medium","type":"mcq","question":"A battery of emf E and internal resistance r drives a circuit containing resistor r₂ connected across the battery, and a capacitor C connected (through resistor r₁) in parallel with r₂. When the current reaches steady state, the charge on the capacitor is:","figure":"E with internal r in series with r₂; branch [r₁ + C in series] connected in parallel with r₂","options":["A C·E·r₁/(r₁+r)","B C·E·r₂/(r+r₂)","C C·E","D C·E·r₁/(r₂+r)"],"answer":"B","solution":"In steady state no current flows in the capacitor branch, so there is no drop across r₁. Current through the main loop: I = E/(r + r₂); voltage across r₂ (= voltage across C) is V = E r₂/(r + r₂). Q = CV = C E r₂/(r + r₂).","trap":"Including r₁ in the answer — since the capacitor branch carries zero steady current, r₁ drops no voltage and is irrelevant."},
 {"id":"q28","source":"IIT-JEE 2012 (P2)","topic":"circuit","difficulty":"hard","type":"mcq","question":"In a circuit, a charge of +80 μC is placed on the upper plate of a 4 μF capacitor. Its lower plate is connected to a node that also joins the upper plates of a 2 μF and a 3 μF capacitor (these two in parallel); the lower plates of the 2 μF and 3 μF capacitors are connected together to ground. In the steady state, the charge on the upper plate of the 3 μF capacitor is:","figure":"+80 μC on top plate of 4 μF; bottom plate of 4 μF joined to top plates of 2 μF and 3 μF; their bottom plates grounded","options":["A +32 μC","B +40 μC","C +48 μC","D +80 μC"],"answer":"C","solution":"The full +80 μC drives the series chain, inducing −80 μC on the lower plate of the 4 μF capacitor. The middle node was neutral: −80 + q₂ + q₃ = 0 ⟹ q₂ + q₃ = 80 μC. The 2 μF and 3 μF share the same voltage, so q₃ = 80 × 3/(2+3) = 48 μC.","trap":"Splitting 80 μC over all three capacitors, or using the series formula on 2 μF and 3 μF — they are in parallel and share charge in ratio of capacitances (3:2)."},
 {"id":"q29","source":"JEE Main (approx 2022)","topic":"conceptual","difficulty":"easy","type":"mcq","question":"A parallel plate capacitor is charged by a battery, which is then disconnected. The plates are now slowly pulled further apart. Which of the following correctly describes what happens to the charge Q, electric field E between the plates, potential difference V, and stored energy U?","figure":null,"options":["A Q constant, E constant, V increases, U increases","B Q constant, E decreases, V constant, U decreases","C Q decreases, E constant, V increases, U constant","D Q constant, E increases, V increases, U decreases"],"answer":"A","solution":"Isolated plates ⟹ Q fixed. E = σ/ε₀ = Q/(ε₀A) depends only on Q and A ⟹ E unchanged. V = Ed increases with d; C = ε₀A/d decreases, so U = Q²/2C increases. The extra energy is the work done pulling the plates against their attraction.","trap":"Thinking E must fall as the plates separate — for an ideal (large-plate) capacitor E is set by surface charge density alone, not by d."},
-{"id":"q30","source":"JEE Main (approx 2021)","topic":"conceptual","difficulty":"easy","type":"mcq","question":"A parallel plate capacitor remains CONNECTED to a battery while its plate separation is slowly increased. Which of the following is correct about the charge Q, field E, potential difference V, and stored energy U?","figure":null,"options":["A V constant, Q decreases, E decreases, U decreases","B V constant, Q constant, E decreases, U increases","C V increases, Q constant, E constant, U increases","D V constant, Q decreases, E constant, U decreases"],"answer":"A","solution":"Battery fixes V. C = ε₀A/d decreases as d grows ⟹ Q = CV decreases (charge flows back into the battery). E = V/d decreases since V is fixed and d increases. U = ½CV² decreases with C.","trap":"Carrying over the isolated-capacitor result (E constant, Q constant) — with the battery attached it is V that is pinned, so Q and E must both fall."}
+{"id":"q30","source":"JEE Main (approx 2021)","topic":"conceptual","difficulty":"easy","type":"mcq","question":"A parallel plate capacitor remains CONNECTED to a battery while its plate separation is slowly increased. Which of the following is correct about the charge Q, field E, potential difference V, and stored energy U?","figure":null,"options":["A V constant, Q decreases, E decreases, U decreases","B V constant, Q constant, E decreases, U increases","C V increases, Q constant, E constant, U increases","D V constant, Q decreases, E constant, U decreases"],"answer":"A","solution":"Battery fixes V. C = ε₀A/d decreases as d grows ⟹ Q = CV decreases (charge flows back into the battery). E = V/d decreases since V is fixed and d increases. U = ½CV² decreases with C.","trap":"Carrying over the isolated-capacitor result (E constant, Q constant) — with the battery attached it is V that is pinned, so Q and E must both fall."},
+{"id":"q31","source":"AcadXL class notes — 13 Aug","topic":"circuit","difficulty":"hard","type":"mcq","question":"A 12 V battery feeds two capacitor branches. Top branch: 3 µF then 6 µF with midpoint X. Bottom branch: 12 µF then 6 µF with midpoint Y. After steady state is reached, a switch S joining X and Y is closed. The total charge that flows through S is:","figure":"two series-capacitor branches across 12 V; switch S joins the midpoints X and Y","options":["A 0 (capacitors block all flow)","B 12 µC","C 24 µC","D 48 µC"],"answer":"C","solution":"Open: V_X = 4 V, V_Y = 8 V. Closed: common node x from (3+12)(x−12) + (6+6)x = 0 ⟹ x = 20/3 V. Island X charge: before −16+16 = 0... after −3(12−20/3) + 6(20/3) = −16+40 = +24 µC. Shortcut: C_eq across S (batteries shorted) = (9×18)/27 = 6 µF; Δq = C_eq·ΔV_S = 6 × 4 = 24 µC.","trap":"Answering 0 because 'capacitors block current' — steady DC yes, but a re-distribution transient still pushes real charge through the switch."},
+{"id":"q32","source":"AcadXL class notes — 16 Aug","topic":"energy","difficulty":"medium","type":"mcq","question":"Capacitor C₁ is charged to V₁ and C₂ to V₂. They are connected through a switch so that the POSITIVE plate of one meets the NEGATIVE plate of the other. The heat generated after the switch closes is:","figure":null,"options":["A ½·C₁C₂(V₁+V₂)²/(C₁+C₂)","B ½(C₁+C₂)(V₁+V₂)²","C ½·C₁C₂(V₁−V₂)²/(C₁+C₂)","D zero"],"answer":"A","solution":"Use the class shortcut H = ½C_eq(ΔV_switch)². Across the open switch the two capacitors are in series: C_eq = C₁C₂/(C₁+C₂). Opposite-polarity joining makes the potential difference across the open switch V₁+V₂. So H = ½·C₁C₂(V₁+V₂)²/(C₁+C₂).","trap":"Writing (V₁−V₂)² — that is the like-polarity (+ to +) case. The polarity of the connection decides ΔV across the switch."},
+{"id":"q33","source":"AcadXL class notes — 21 Aug","topic":"rc","difficulty":"medium","type":"mcq","question":"A battery V drives resistor R, followed by a parallel combination of another R and an uncharged capacitor C. The switch is closed at t = 0. The current drawn from the battery at t = 0⁺ and as t → ∞ is respectively:","figure":"V — R — node — [R parallel C] — back to battery","options":["A V/R and V/2R","B V/2R and V/R","C V/R and V/R","D V/2R and 0"],"answer":"A","solution":"At t = 0⁺ the uncharged capacitor behaves as a plain WIRE, shorting the parallel R ⟹ i = V/R. As t → ∞ the capacitor is an OPEN switch ⟹ the two R are in series ⟹ i = V/2R. Full answer: i(t) = (V/2R)(1+e^(−2t/RC)).","trap":"Forgetting that the capacitor SHORTS its parallel resistor at t = 0⁺ — many students start from V/2R instead of V/R."}
 ];
 const QTOPICS={basics:'Basics',geometry:'Geometry',combination:'Combinations',energy:'Energy',dielectric:'Dielectrics',force:'Forces',rc:'RC circuits',circuit:'DC circuits',conceptual:'Conceptual'};
 
 registerModule({
   id:'pyq-arena',
   title:'JEE PYQ Arena — 20 Years of Main + Advanced',
-  blurb:'30 real exam questions (AIEEE 2005 → JEE 2024) with full solutions AND the classic trap each one sets. Filter by topic, attempt, get instant verdicts.',
+  blurb:'33 questions — 30 real exam PYQs (AIEEE 2005 → JEE Main 2024) + 3 straight from the AcadXL class notes — each with the full solution AND the trap it sets.',
   icon:ICC.quiz,
   tags:[{k:'jee',t:'Main'},{k:'jee',t:'Advanced'}],
-  sub:'Every question below appeared in a real paper. Attempt first, <b>then</b> read the solution — and especially the <b>trap</b>: that is what the examiner was actually testing.',
+  sub:'Every question appeared in a real JEE paper — or on the AcadXL classroom board (marked <b>class notes</b>). Attempt first, <b>then</b> read the solution and the <b>trap</b>: that is what the examiner is actually testing.',
   aspect:0.3,
   build(host){
     let list=QBANK.slice(), idx=0, attempted=0, correct=0;
@@ -2252,7 +2328,7 @@ registerModule({
     };
     selT.addEventListener('change',refilter); selD.addEventListener('change',refilter);
     host.addPanel('Filter the bank',[selT,selD,
-      E('p',{class:'tip',html:'<b>30 questions</b>: AIEEE & JEE Main 2005–2024, IIT-JEE & JEE Advanced 2005–2020. Sources marked "approx" are classic PYQs whose exact session varies between paper archives.'})]);
+      E('p',{class:'tip',html:'<b>33 questions</b>: 30 PYQs (AIEEE & JEE 2005–2024) + 3 marked <b>AcadXL class notes</b> — straight from the Aug classroom. "approx" sources are classics whose exact session varies between archives.'})]);
     const ro=host.Readouts([
       {key:'sc',label:'Score',hl:true},
       {key:'pr',label:'Progress'},
