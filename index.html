@@ -1904,8 +1904,8 @@ registerModule({
         const xx=lerp(x-w2+9,x+w2-9,n===0?0.5:j/Math.max(1,n));
         Kit.q(xx,y-gap/2-th/2,v>=0?+1:-1,4.4); Kit.q(xx,y+gap/2+th/2,v>=0?-1:+1,4.4);
       }
-      Draw.label(x,y-gap/2-th-12,name+' = '+fmt(Cv,1)+' µF',C.mut,'700 12px -apple-system,sans-serif','center');
-      Draw.label(x,y+gap/2+th+22,fmt(v,2)+' V',C.green,'800 13px -apple-system,sans-serif','center');
+      Draw.label(x+w2+10,y-gap/2-th/2+4,name+' = '+fmt(Cv,1)+' µF',C.mut,'700 12px -apple-system,sans-serif');
+      Draw.label(x+w2+10,y+gap/2+th/2+4,fmt(v,2)+' V',C.green,'800 13px -apple-system,sans-serif');
     }
     function cktZone(z,C1,C2,v1,v2,p){
       uZone(z,'#000');
