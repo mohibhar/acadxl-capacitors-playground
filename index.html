@@ -11,22 +11,22 @@
 <style>
 /* ============ AcadXL brand palette ============ */
 :root{
-  --axl-bg:#0b1f3a;        /* deep navy */
-  --axl-bg2:#0e2747;
-  --axl-panel:#0f2c52;
-  --axl-panel2:#12345f;
-  --axl-blue:#1b75bc;
-  --axl-blue-glow:#3aa0ee;
-  --axl-green:#39b54a;
-  --axl-orange:#f5821f;
-  --axl-line:#26416b;
-  --axl-line2:#1d3559;
-  --axl-text:#eaf2ff;
-  --axl-mut:#9db6da;
-  --axl-mut2:#6f8bb5;
-  --axl-red:#ff5a6e;
-  --axl-yellow:#ffd23d;
-  --axl-violet:#b388ff;
+  --axl-bg:#0e0a20;        /* deep navy */
+  --axl-bg2:#161038;
+  --axl-panel:#191240;
+  --axl-panel2:#201850;
+  --axl-blue:#7c3aed;
+  --axl-blue-glow:#22d3ee;
+  --axl-green:#34d399;
+  --axl-orange:#fbbf24;
+  --axl-line:#322a5e;
+  --axl-line2:#2a2350;
+  --axl-text:#f2efff;
+  --axl-mut:#a8a2cc;
+  --axl-mut2:#7b75a3;
+  --axl-red:#fb7185;
+  --axl-yellow:#fde047;
+  --axl-violet:#f472b6;
   --radius:16px;
   --shadow:0 10px 30px rgba(0,0,0,.45);
 }
@@ -47,10 +47,10 @@ a{color:inherit}
 body::before{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:
-    radial-gradient(rgba(157,182,218,.05) 1.1px, transparent 1.7px),
-    radial-gradient(720px 460px at 14% 16%, rgba(27,117,188,.15), transparent 62%),
-    radial-gradient(620px 440px at 86% 74%, rgba(245,130,31,.07), transparent 62%),
-    radial-gradient(520px 360px at 72% 8%, rgba(57,181,74,.05), transparent 60%);
+    radial-gradient(rgba(168,162,204,.05) 1.1px, transparent 1.7px),
+    radial-gradient(720px 460px at 14% 16%, rgba(124,58,237,.15), transparent 62%),
+    radial-gradient(620px 440px at 86% 74%, rgba(251,191,36,.07), transparent 62%),
+    radial-gradient(520px 360px at 72% 8%, rgba(52,211,153,.05), transparent 60%);
   background-size:32px 32px,auto,auto,auto;
 }
 .wrap{max-width:1240px;margin:0 auto;padding:0 18px}
@@ -59,7 +59,7 @@ body::before{
 header.topbar{
   position:sticky;top:0;z-index:50;
   backdrop-filter:saturate(140%) blur(10px);
-  background:linear-gradient(180deg, rgba(8,24,46,.92), rgba(8,24,46,.72));
+  background:linear-gradient(180deg, rgba(13,9,32,.92), rgba(13,9,32,.72));
   border-bottom:1px solid var(--axl-line);
 }
 /* brand tricolour hairline under the header */
@@ -80,7 +80,7 @@ header.topbar::after{
   padding:5px 11px;border-radius:999px;border:1px solid var(--axl-line);
   background:linear-gradient(180deg,var(--axl-panel2),var(--axl-panel));color:var(--axl-mut)
 }
-.badge.jee{color:#fff;background:linear-gradient(180deg,var(--axl-orange),#d96a10);border-color:#e07a1a}
+.badge.jee{color:#fff;background:linear-gradient(180deg,var(--axl-orange),#d97706);border-color:#f59e0b}
 .backbtn{
   display:none;align-items:center;gap:7px;cursor:pointer;
   font-size:14px;font-weight:600;color:var(--axl-text);
@@ -117,8 +117,8 @@ header.topbar::after{
   mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
 }
 .herocap svg{width:100%;height:100%;display:block}
-.hcpl{filter:drop-shadow(0 0 7px rgba(245,130,31,.8))}
-.hcpr{filter:drop-shadow(0 0 7px rgba(77,178,255,.8))}
+.hcpl{filter:drop-shadow(0 0 7px rgba(251,191,36,.8))}
+.hcpr{filter:drop-shadow(0 0 7px rgba(56,189,248,.8))}
 .hcfield{animation:hcpulse 2.8s ease-in-out infinite}
 .hcq{animation:hcpulse 2.8s ease-in-out infinite}
 @keyframes hcpulse{0%,100%{opacity:.3}50%{opacity:1}}
@@ -126,7 +126,7 @@ header.topbar::after{
 /* ============ Module grid ============ */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px;padding:26px 0 60px}
 .card{
-  --ac:#3aa0ee; --acs:rgba(58,160,238,.16);
+  --ac:#22d3ee; --acs:rgba(34,211,238,.16);
   position:relative;overflow:hidden;cursor:pointer;
   background:linear-gradient(160deg,var(--axl-panel2),var(--axl-panel));
   border:1px solid var(--axl-line);border-radius:var(--radius);
@@ -136,16 +136,16 @@ header.topbar::after{
   animation:cardIn .5s cubic-bezier(.2,.8,.2,1) backwards;
 }
 /* one accent hue per module */
-.grid .card:nth-child(10n+1){--ac:#3aa0ee;--acs:rgba(58,160,238,.16)}
-.grid .card:nth-child(10n+2){--ac:#39b54a;--acs:rgba(57,181,74,.16)}
-.grid .card:nth-child(10n+3){--ac:#f5821f;--acs:rgba(245,130,31,.16)}
-.grid .card:nth-child(10n+4){--ac:#2bd9d9;--acs:rgba(43,217,217,.16)}
-.grid .card:nth-child(10n+5){--ac:#b388ff;--acs:rgba(179,136,255,.16)}
-.grid .card:nth-child(10n+6){--ac:#ffd23d;--acs:rgba(255,210,61,.16)}
-.grid .card:nth-child(10n+7){--ac:#ff4fa3;--acs:rgba(255,79,163,.16)}
-.grid .card:nth-child(10n+8){--ac:#34d399;--acs:rgba(52,211,153,.16)}
-.grid .card:nth-child(10n+9){--ac:#ff5a6e;--acs:rgba(255,90,110,.16)}
-.grid .card:nth-child(10n)  {--ac:#7c9eff;--acs:rgba(124,158,255,.16)}
+.grid .card:nth-child(10n+1){--ac:#a78bfa;--acs:rgba(167,139,250,.18)}
+.grid .card:nth-child(10n+2){--ac:#2dd4bf;--acs:rgba(45,212,191,.18)}
+.grid .card:nth-child(10n+3){--ac:#fbbf24;--acs:rgba(251,191,36,.18)}
+.grid .card:nth-child(10n+4){--ac:#22d3ee;--acs:rgba(34,211,238,.18)}
+.grid .card:nth-child(10n+5){--ac:#f472b6;--acs:rgba(244,114,182,.18)}
+.grid .card:nth-child(10n+6){--ac:#fde047;--acs:rgba(253,224,71,.18)}
+.grid .card:nth-child(10n+7){--ac:#fb7185;--acs:rgba(251,113,133,.18)}
+.grid .card:nth-child(10n+8){--ac:#34d399;--acs:rgba(52,211,153,.18)}
+.grid .card:nth-child(10n+9){--ac:#c084fc;--acs:rgba(192,132,252,.18)}
+.grid .card:nth-child(10n)  {--ac:#818cf8;--acs:rgba(129,140,248,.18)}
 @keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .grid .card:nth-child(1){animation-delay:.02s}.grid .card:nth-child(2){animation-delay:.06s}
 .grid .card:nth-child(3){animation-delay:.10s}.grid .card:nth-child(4){animation-delay:.14s}
@@ -177,8 +177,8 @@ header.topbar::after{
 .card p{margin:0;font-size:12.6px;color:var(--axl-mut);line-height:1.45;flex:1}
 .card .tags{margin-top:11px;display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:10px;font-weight:700;letter-spacing:.4px;padding:3px 8px;border-radius:6px;text-transform:uppercase}
-.tag.ncert{color:#bfe6ff;background:rgba(27,117,188,.22);border:1px solid rgba(58,160,238,.35)}
-.tag.jee{color:#ffd9b3;background:rgba(245,130,31,.18);border:1px solid rgba(245,130,31,.4)}
+.tag.ncert{color:#bfe6ff;background:rgba(124,58,237,.22);border:1px solid rgba(34,211,238,.35)}
+.tag.jee{color:#ffd9b3;background:rgba(251,191,36,.18);border:1px solid rgba(251,191,36,.4)}
 
 .sectlbl{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--axl-mut2);margin:8px 0 0;font-weight:700}
 .sectlbl::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--axl-line),transparent)}
@@ -190,7 +190,7 @@ header.topbar::after{
 .stagehead{margin-bottom:16px}
 .stagehead h2{margin:0 0 6px;font-size:clamp(21px,3vw,28px);font-weight:800;position:relative;padding-left:15px}
 .stagehead h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.12em;width:4px;border-radius:3px;
-  background:linear-gradient(180deg,var(--axl-orange),var(--axl-blue-glow));box-shadow:0 0 10px rgba(245,130,31,.45)}
+  background:linear-gradient(180deg,var(--axl-orange),var(--axl-blue-glow));box-shadow:0 0 10px rgba(251,191,36,.45)}
 .stagehead .sub{color:var(--axl-mut);font-size:14px;line-height:1.5;max-width:820px}
 .stagehead .tags{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap}
 
@@ -200,8 +200,8 @@ header.topbar::after{
 .canvaswrap{
   position:relative;border-radius:var(--radius);overflow:hidden;
   border:1px solid var(--axl-line);
-  background:radial-gradient(125% 130% at 50% 0%, #070d18 0%, #03060d 55%, #000 100%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 18px 50px rgba(0,0,0,.45), 0 0 34px rgba(27,117,188,.10);
+  background:radial-gradient(125% 130% at 50% 0%, #0d0918 0%, #060410 55%, #000 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 18px 50px rgba(0,0,0,.45), 0 0 34px rgba(124,58,237,.10);
 }
 /* faint accent hairline along the top of the stage */
 .canvaswrap::before{
@@ -218,8 +218,8 @@ canvas{display:block;width:100%;touch-action:none}
 }
 .tbtn:hover{border-color:var(--axl-blue);background:var(--axl-panel2);transform:translateY(-1px)}
 .tbtn:active{transform:translateY(0)}
-.tbtn.primary{background:linear-gradient(180deg,var(--axl-blue),#155e98);border-color:var(--axl-blue);box-shadow:0 4px 16px rgba(27,117,188,.35)}
-.tbtn.active{background:linear-gradient(180deg,var(--axl-orange),#d96a10);border-color:var(--axl-orange);color:#fff;box-shadow:0 4px 16px rgba(245,130,31,.35)}
+.tbtn.primary{background:linear-gradient(180deg,var(--axl-blue),#5b21b6);border-color:var(--axl-blue);box-shadow:0 4px 16px rgba(124,58,237,.35)}
+.tbtn.active{background:linear-gradient(180deg,var(--axl-orange),#d97706);border-color:var(--axl-orange);color:#fff;box-shadow:0 4px 16px rgba(251,191,36,.35)}
 .tbtn.primary:hover{filter:brightness(1.08)}
 .tbtn svg{width:15px;height:15px}
 .speedwrap{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--axl-mut);margin-left:auto}
@@ -266,7 +266,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .seg{display:flex;gap:0;border:1px solid var(--axl-line);border-radius:11px;overflow:hidden;background:var(--axl-bg2)}
 .seg button{flex:1;border:0;background:transparent;color:var(--axl-mut);font-size:12.5px;font-weight:600;
   padding:9px 6px;cursor:pointer;transition:.13s;font-family:inherit}
-.seg button.active{background:linear-gradient(180deg,var(--axl-blue),#155e98);color:#fff}
+.seg button.active{background:linear-gradient(180deg,var(--axl-blue),#5b21b6);color:#fff}
 .seg button:not(.active):hover{background:var(--axl-panel2);color:var(--axl-text)}
 
 /* checkbox pill */
@@ -286,7 +286,7 @@ input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;bac
 .ro.hl .v{color:var(--axl-green)}
 
 /* formula box */
-.formula{font-size:16px;text-align:center;padding:13px 10px;background:var(--axl-bg2);border:1px solid var(--axl-line2);border-radius:10px;line-height:1.7;color:#dce9ff}
+.formula{font-size:16px;text-align:center;padding:13px 10px;background:var(--axl-bg2);border:1px solid var(--axl-line2);border-radius:10px;line-height:1.7;color:#e7e2ff}
 .formula .em{color:var(--axl-blue-glow);font-weight:700}
 .formula .em2{color:var(--axl-green);font-weight:700}
 sub{font-size:.72em}sup{font-size:.72em}
@@ -298,7 +298,7 @@ sub{font-size:.72em}sup{font-size:.72em}
 .rad{font-size:1.15em;vertical-align:-.05em}
 
 /* JEE insight box */
-.jeebox{border:1px solid rgba(245,130,31,.38);background:linear-gradient(160deg,rgba(245,130,31,.10),rgba(245,130,31,.02));border-radius:var(--radius);padding:14px 16px}
+.jeebox{border:1px solid rgba(251,191,36,.38);background:linear-gradient(160deg,rgba(251,191,36,.10),rgba(251,191,36,.02));border-radius:var(--radius);padding:14px 16px}
 .jeebox h4{color:var(--axl-orange)}
 .jeebox h4::before{background:var(--axl-orange)}
 .jeebox p{margin:0 0 9px;font-size:13px;line-height:1.55;color:#f0dcc8}
@@ -313,6 +313,46 @@ footer::before{content:"";position:absolute;top:-1px;left:50%;transform:translat
   background:linear-gradient(90deg,transparent,var(--axl-blue),var(--axl-green),var(--axl-orange),transparent);opacity:.7}
 footer b{color:var(--axl-mut)}
 
+/* ===== v3 THEME "Violet Volt" — glass + typography override layer ===== */
+h1,h2,h3,.brand .bt b{font-family:'Avenir Next','SF Pro Display',-apple-system,'Segoe UI',sans-serif;letter-spacing:.1px}
+.hero{padding:46px 0 72px}
+.hero h1{font-size:clamp(30px,4.6vw,46px)}
+.hero h1 .hl{background:linear-gradient(90deg,#a78bfa,#22d3ee 40%,#f472b6 80%,#a78bfa);background-size:220% 100%;-webkit-background-clip:text;background-clip:text}
+.hero::before{content:"";position:absolute;left:-70px;top:-90px;width:430px;height:430px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(124,58,237,.30),transparent 65%);filter:blur(6px)}
+.hero::after{content:"";position:absolute;right:5%;top:-50px;width:340px;height:340px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(34,211,238,.13),transparent 65%)}
+.panel{background:linear-gradient(155deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 10px 30px rgba(0,0,0,.35)}
+.card{background:linear-gradient(155deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.jeebox{background:linear-gradient(155deg,rgba(251,191,36,.11),rgba(251,191,36,.02));border-color:rgba(251,191,36,.34);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.tbtn{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.13)}
+.tbtn:hover{background:rgba(255,255,255,.11);border-color:#a78bfa}
+.tbtn.primary{background:linear-gradient(180deg,#8b5cf6,#6d28d9);border-color:#8b5cf6;box-shadow:0 4px 18px rgba(139,92,246,.45)}
+.tbtn.active{background:linear-gradient(180deg,#f59e0b,#d97706);border-color:#f59e0b;box-shadow:0 4px 18px rgba(245,158,11,.4)}
+.seg{background:rgba(0,0,0,.32);border-color:rgba(255,255,255,.10)}
+.seg button.active{background:linear-gradient(180deg,#8b5cf6,#6d28d9)}
+.ro{background:rgba(0,0,0,.30);border-color:rgba(255,255,255,.08)}
+.formula{background:rgba(0,0,0,.32);border-color:rgba(255,255,255,.09)}
+.badge{background:rgba(255,255,255,.06)}
+.badge.jee{background:linear-gradient(180deg,#ec4899,#be185d);border-color:#ec4899;color:#fff}
+.chk .box{background:rgba(0,0,0,.3)}
+.chk input:checked + .box{background:#8b5cf6;border-color:#8b5cf6}
+input[type=range]::-webkit-slider-thumb{border-color:#8b5cf6}
+input[type=range]::-moz-range-thumb{border-color:#8b5cf6}
+header.topbar{background:linear-gradient(180deg,rgba(16,11,38,.93),rgba(16,11,38,.72))}
+.qopt{background:rgba(0,0,0,.3);border-color:rgba(255,255,255,.11)}
+.qopt:hover{border-color:#a78bfa}
+.qbtns button{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.13)}
+.qbtns button.go{background:linear-gradient(180deg,#8b5cf6,#6d28d9);border-color:#8b5cf6}
+.qsel,.qnum input{background:rgba(0,0,0,.3);border-color:rgba(255,255,255,.13)}
+.qmeta span{background:rgba(255,255,255,.09)}
+.qfig{background:rgba(0,0,0,.36);border-color:rgba(255,255,255,.09)}
+footer::before{background:linear-gradient(90deg,transparent,#8b5cf6,#22d3ee,#f472b6,transparent)}
+
 @media (prefers-reduced-motion:reduce){
   .herocap *,.hcfield,.hcq,.hero h1 .hl,.card{animation:none!important}
 }
@@ -321,7 +361,7 @@ footer b{color:var(--axl-mut)}
 .formula+.formula{margin-top:9px}
 .formula.sm{font-size:13.5px;padding:9px 8px;line-height:1.9}
 .formula .frac{font-size:.92em}
-.qfig{background:#040b16;border:1px solid #24405f;border-radius:11px;padding:10px 8px;margin:2px 0 12px}
+.qfig{background:#080614;border:1px solid #322a5e;border-radius:11px;padding:10px 8px;margin:2px 0 12px}
 .qfig svg{width:100%;max-height:200px;display:block}
 .hidden{display:none!important}
 ::-webkit-scrollbar{width:10px;height:10px}
@@ -353,30 +393,30 @@ footer b{color:var(--axl-mut)}
       <svg viewBox="0 0 900 132" preserveAspectRatio="xMidYMax meet">
         <defs>
           <linearGradient id="hcf" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#f5821f" stop-opacity=".8"/>
-            <stop offset="1" stop-color="#4db2ff" stop-opacity=".8"/>
+            <stop offset="0" stop-color="#fbbf24" stop-opacity=".8"/>
+            <stop offset="1" stop-color="#38bdf8" stop-opacity=".8"/>
           </linearGradient>
         </defs>
-        <g fill="none" stroke="rgba(157,182,218,.5)" stroke-width="2.5" stroke-linecap="round">
+        <g fill="none" stroke="rgba(168,162,204,.5)" stroke-width="2.5" stroke-linecap="round">
           <path d="M433 38 H70 V108 H424"/>
           <path d="M467 38 H830 V108 H476"/>
         </g>
-        <g stroke="#dce9ff" stroke-linecap="round">
+        <g stroke="#e7e2ff" stroke-linecap="round">
           <line x1="424" y1="92" x2="424" y2="124" stroke-width="3"/>
           <line x1="476" y1="98" x2="476" y2="118" stroke-width="6.5"/>
         </g>
-        <text x="408" y="90" fill="#f5821f" stroke="none" font-size="13" font-weight="800">+</text>
-        <text x="486" y="90" fill="#4db2ff" stroke="none" font-size="14" font-weight="800">−</text>
-        <line class="hcpl" x1="433" y1="8" x2="433" y2="68" stroke="#f5821f" stroke-width="5.5" stroke-linecap="round"/>
-        <line class="hcpr" x1="467" y1="8" x2="467" y2="68" stroke="#4db2ff" stroke-width="5.5" stroke-linecap="round"/>
-        <text class="hcq" x="418" y="14" fill="#f5821f" stroke="none" font-size="11" font-weight="800">+Q</text>
-        <text class="hcq" x="472" y="14" fill="#4db2ff" stroke="none" font-size="11" font-weight="800">−Q</text>
-        <g class="hcfield" stroke="url(#hcf)" stroke-width="2" fill="#4db2ff">
+        <text x="408" y="90" fill="#fbbf24" stroke="none" font-size="13" font-weight="800">+</text>
+        <text x="486" y="90" fill="#38bdf8" stroke="none" font-size="14" font-weight="800">−</text>
+        <line class="hcpl" x1="433" y1="8" x2="433" y2="68" stroke="#fbbf24" stroke-width="5.5" stroke-linecap="round"/>
+        <line class="hcpr" x1="467" y1="8" x2="467" y2="68" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round"/>
+        <text class="hcq" x="418" y="14" fill="#fbbf24" stroke="none" font-size="11" font-weight="800">+Q</text>
+        <text class="hcq" x="472" y="14" fill="#38bdf8" stroke="none" font-size="11" font-weight="800">−Q</text>
+        <g class="hcfield" stroke="url(#hcf)" stroke-width="2" fill="#38bdf8">
           <line x1="439" y1="22" x2="457" y2="22"/><path d="M461 22 l-7 -4 v8 Z" stroke="none"/>
           <line x1="439" y1="40" x2="457" y2="40"/><path d="M461 40 l-7 -4 v8 Z" stroke="none"/>
           <line x1="439" y1="58" x2="457" y2="58"/><path d="M461 58 l-7 -4 v8 Z" stroke="none"/>
         </g>
-        <g fill="#ffd23d">
+        <g fill="#fde047">
           <circle r="3.4"><animateMotion dur="7s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
           <circle r="3.4"><animateMotion dur="7s" begin="-2.3s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
           <circle r="3.4"><animateMotion dur="7s" begin="-4.6s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
@@ -594,16 +634,16 @@ fsBtn.innerHTML=ICON_FS_ON+' Fullscreen';   // initial label (don't call paintFs
 /* ---- canvas drawing helpers shared by modules ---- */
 const Draw={
   grid(x0,y0,w,h,step,color){
-    ctx.save();ctx.strokeStyle=color||'rgba(120,160,210,.10)';ctx.lineWidth=1;ctx.beginPath();
+    ctx.save();ctx.strokeStyle=color||'rgba(150,142,200,.10)';ctx.lineWidth=1;ctx.beginPath();
     for(let x=x0;x<=x0+w+.5;x+=step){ctx.moveTo(x,y0);ctx.lineTo(x,y0+h);}
     for(let y=y0;y<=y0+h+.5;y+=step){ctx.moveTo(x0,y);ctx.lineTo(x0+w,y);}
     ctx.stroke();ctx.restore();
   },
   axis(x0,y,x1,label){
-    ctx.save();ctx.strokeStyle='rgba(157,182,218,.5)';ctx.lineWidth=1.5;
+    ctx.save();ctx.strokeStyle='rgba(168,162,204,.5)';ctx.lineWidth=1.5;
     ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x1,y);ctx.stroke();
     // arrow
-    ctx.fillStyle='rgba(157,182,218,.6)';ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x1-8,y-4);ctx.lineTo(x1-8,y+4);ctx.fill();
+    ctx.fillStyle='rgba(168,162,204,.6)';ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x1-8,y-4);ctx.lineTo(x1-8,y+4);ctx.fill();
     if(label){ctx.fillStyle='var(--axl-mut)';ctx.font='italic 13px Georgia';ctx.fillText(label,x1-4,y+18);}
     ctx.restore();
   },
@@ -621,7 +661,7 @@ const Draw={
     ctx.fillStyle=color;ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fill();ctx.restore();
   },
   label(x,y,text,color,font,align){
-    ctx.save();ctx.fillStyle=color||'#9db6da';ctx.font=font||'12px -apple-system,sans-serif';
+    ctx.save();ctx.fillStyle=color||'#a8a2cc';ctx.font=font||'12px -apple-system,sans-serif';
     ctx.textAlign=align||'left';ctx.fillText(text,x,y);ctx.restore();
   },
   vArrow(x,y0,y1,color){
@@ -633,22 +673,22 @@ const Draw={
   }
 };
 /* color constants matching brand */
-const C={blue:'#3aa0ee',blue2:'#1b75bc',green:'#39b54a',orange:'#f5821f',red:'#ff5a6e',yellow:'#ffd23d',violet:'#b388ff',mut:'#9db6da',mut2:'#6f8bb5',ink:'#eaf2ff'};
+const C={blue:'#22d3ee',blue2:'#7c3aed',green:'#34d399',orange:'#fbbf24',red:'#fb7185',yellow:'#fde047',violet:'#f472b6',mut:'#a8a2cc',mut2:'#7b75a3',ink:'#f2efff'};
 
 /* ---- shared "Module-1 treatment": black stage zones + dedicated graph panels ---- */
 const UPADX=14;
 function uZone(z,bg){ ctx.save(); ctx.beginPath();
   if(ctx.roundRect)ctx.roundRect(z.x,z.y,z.w,z.h,11); else ctx.rect(z.x,z.y,z.w,z.h);
-  ctx.fillStyle=bg||'#000'; ctx.fill(); ctx.strokeStyle='rgba(120,160,210,.14)'; ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
+  ctx.fillStyle=bg||'#000'; ctx.fill(); ctx.strokeStyle='rgba(150,142,200,.14)'; ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
 function uRows(weights,padX){ const gap=9,pad=4, tot=weights.reduce((a,b)=>a+b,0),
   avail=CH-2*pad-gap*(weights.length-1), px=padX==null?34:padX; let y=pad;
   return weights.map(wt=>{const h=avail*wt/tot, o={x:px,y,w:CW-px-20,h}; y+=h+gap; return o;}); }
-function uAxisX(z,cy){ ctx.save();ctx.strokeStyle='rgba(157,182,218,.4)';ctx.lineWidth=1.2;
+function uAxisX(z,cy){ ctx.save();ctx.strokeStyle='rgba(168,162,204,.4)';ctx.lineWidth=1.2;
   ctx.beginPath();ctx.moveTo(z.x+UPADX,cy);ctx.lineTo(z.x+z.w-8,cy);ctx.stroke();
-  ctx.fillStyle='rgba(157,182,218,.55)';ctx.beginPath();ctx.moveTo(z.x+z.w-8,cy);ctx.lineTo(z.x+z.w-15,cy-4);ctx.lineTo(z.x+z.w-15,cy+4);ctx.fill();
+  ctx.fillStyle='rgba(168,162,204,.55)';ctx.beginPath();ctx.moveTo(z.x+z.w-8,cy);ctx.lineTo(z.x+z.w-15,cy-4);ctx.lineTo(z.x+z.w-15,cy+4);ctx.fill();
   ctx.fillStyle=C.mut2;ctx.font='italic 12px Georgia';ctx.fillText('x',z.x+z.w-6,cy+14);ctx.restore(); }
 function uTitle(z,text,col){ Draw.label(z.x+UPADX,z.y+15,text,col||C.mut,'600 11px -apple-system,sans-serif'); }
-function uCorr(z,x){ ctx.save();ctx.strokeStyle='rgba(245,130,31,.6)';ctx.setLineDash([2,4]);ctx.lineWidth=1.3;
+function uCorr(z,x){ ctx.save();ctx.strokeStyle='rgba(251,191,36,.6)';ctx.setLineDash([2,4]);ctx.lineWidth=1.3;
   ctx.beginPath();ctx.moveTo(x,z.y+5);ctx.lineTo(x,z.y+z.h-5);ctx.stroke();ctx.restore(); }
 
 /* ============================================================
@@ -666,11 +706,11 @@ const IC={
   string:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h4c2 0 2-5 4-5s2 10 4 10 2-5 2-5h4"/></svg>',
   sound:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 8a5 5 0 0 1 0 8"/></svg>',
   superpose:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 14c3-7 5-7 8 0"/><path d="M14 14c3-7 5-7 8 0"/></svg>',
-  reflect:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10c3-4 6-4 9 0"/><path d="M20 4v16"/><path d="M11 14c-3 4-6 4-9 0" stroke="#f5821f"/></svg>',
+  reflect:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10c3-4 6-4 9 0"/><path d="M20 4v16"/><path d="M11 14c-3 4-6 4-9 0" stroke="#fbbf24"/></svg>',
   standing:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12c0-6 3.3-6 5 0s3.3 6 5 0 3.3-6 5 0 3.3 6 5 0"/></svg>',
-  pipe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12c2-3 4-3 6 0s3 3 5 0" stroke="#f5821f"/></svg>',
+  pipe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12c2-3 4-3 6 0s3 3 5 0" stroke="#fbbf24"/></svg>',
   beats:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12c2-8 3 8 5 0s3 8 5 0 3 8 5 0 3 8 5 0"/></svg>',
-  doppler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2" fill="#f5821f" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="10"/></svg>'
+  doppler:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2" fill="#fbbf24" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="10"/></svg>'
 };
 
 /* ============================================================
@@ -753,9 +793,9 @@ function autoCap(F){ // pretty-print a capacitance with auto unit
   return fmt(F*1e12,2)+' pF';
 }
 const Kit={
-  wire(pts,col,w){ ctx.save();ctx.strokeStyle=col||'#7e98bd';ctx.lineWidth=w||2.2;ctx.lineJoin='round';ctx.lineCap='round';
+  wire(pts,col,w){ ctx.save();ctx.strokeStyle=col||'#8b84b8';ctx.lineWidth=w||2.2;ctx.lineJoin='round';ctx.lineCap='round';
     ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);ctx.stroke();ctx.restore(); },
-  node(x,y){ Draw.dot(x,y,3.2,'#aac4e8',0); },
+  node(x,y){ Draw.dot(x,y,3.2,'#b9b2e0',0); },
   /* battery centered at (x,y); leave a 24px gap in the wire. horiz=true → wire runs left-right.
      flip=false → + terminal on the LEFT (horiz) or TOP (vert). */
   battery(x,y,horiz,flip,label){
@@ -787,7 +827,7 @@ const Kit={
   res(x,y,horiz,label,glow){
     ctx.save();
     if(glow){ ctx.shadowColor=C.red; ctx.shadowBlur=glow; }
-    ctx.strokeStyle=glow?'#ff8e7a':'#c9d9f2';ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.lineCap='round';
+    ctx.strokeStyle=glow?'#ff8e7a':'#d6d0f0';ctx.lineWidth=2.4;ctx.lineJoin='round';ctx.lineCap='round';
     const n=6,span=44,amp=8;
     ctx.beginPath();
     for(let i=0;i<=n;i++){
@@ -801,7 +841,7 @@ const Kit={
   /* open/closed switch centered at (x,y) on a horizontal wire, 28px gap */
   sw(x,y,closed){
     ctx.save();ctx.strokeStyle=C.ink;ctx.lineWidth=2.4;ctx.lineCap='round';
-    Draw.dot(x-14,y,3.4,'#aac4e8',0); Draw.dot(x+14,y,3.4,'#aac4e8',0);
+    Draw.dot(x-14,y,3.4,'#b9b2e0',0); Draw.dot(x+14,y,3.4,'#b9b2e0',0);
     ctx.beginPath();ctx.moveTo(x-14,y);
     if(closed)ctx.lineTo(x+14,y); else ctx.lineTo(x+10,y-15);
     ctx.stroke();ctx.restore();
@@ -815,9 +855,9 @@ const Kit={
   },
   /* a small ± charge glyph */
   q(x,y,sign,r){
-    r=r||5.6; const c=sign>0?C.orange:'#4db2ff';
+    r=r||5.6; const c=sign>0?C.orange:'#38bdf8';
     ctx.save();ctx.fillStyle=c;ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fill();
-    ctx.strokeStyle='#06101e';ctx.lineWidth=1.6;
+    ctx.strokeStyle='#0a0718';ctx.lineWidth=1.6;
     ctx.beginPath();ctx.moveTo(x-r*.52,y);ctx.lineTo(x+r*.52,y);
     if(sign>0){ctx.moveTo(x,y-r*.52);ctx.lineTo(x,y+r*.52);}
     ctx.stroke();ctx.restore();
@@ -846,9 +886,9 @@ const Kit={
 /* simple framed plot area inside a zone; returns mappers */
 function plotFrame(z,xlab,ylab){
   const px0=z.x+UPADX+30,px1=z.x+z.w-18,py0=z.y+z.h-26,py1=z.y+32;
-  ctx.save();ctx.strokeStyle='rgba(157,182,218,.45)';ctx.lineWidth=1.3;
+  ctx.save();ctx.strokeStyle='rgba(168,162,204,.45)';ctx.lineWidth=1.3;
   ctx.beginPath();ctx.moveTo(px0,py1-4);ctx.lineTo(px0,py0);ctx.lineTo(px1,py0);ctx.stroke();
-  ctx.fillStyle='rgba(157,182,218,.55)';
+  ctx.fillStyle='rgba(168,162,204,.55)';
   ctx.beginPath();ctx.moveTo(px1,py0);ctx.lineTo(px1-7,py0-4);ctx.lineTo(px1-7,py0+4);ctx.fill();
   ctx.beginPath();ctx.moveTo(px0,py1-4);ctx.lineTo(px0-4,py1+3);ctx.lineTo(px0+4,py1+3);ctx.fill();
   ctx.restore();
@@ -876,38 +916,38 @@ function arrow(x0,y0,x1,y1,col,w){
 document.head.appendChild(E('style',{text:`
 .qwrap{font-size:14.5px;line-height:1.55}
 .qmeta{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
-.qmeta span{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:#11304f;color:#9db6da;letter-spacing:.3px}
-.qmeta span.src{background:#1b3a1f;color:#7fe08d}
-.qmeta span.hard{background:#3a1420;color:#ff8a9a}
-.qtext{margin:0 0 10px;color:#eaf2ff}
-.qopt{display:block;width:100%;text-align:left;margin:7px 0;padding:10px 13px;border-radius:11px;border:1.5px solid #24405f;background:#0e2138;color:#eaf2ff;font-size:14px;cursor:pointer;transition:border-color .15s}
-.qopt:hover{border-color:#3aa0ee}
-.qopt.right{border-color:#39b54a;background:#0d2e18}
-.qopt.wrong{border-color:#ff5a6e;background:#33121a}
+.qmeta span{font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;background:#231b4e;color:#a8a2cc;letter-spacing:.3px}
+.qmeta span.src{background:#15301f;color:#6ee7a8}
+.qmeta span.hard{background:#3a1430;color:#fda4af}
+.qtext{margin:0 0 10px;color:#f2efff}
+.qopt{display:block;width:100%;text-align:left;margin:7px 0;padding:10px 13px;border-radius:11px;border:1.5px solid #322a5e;background:#181138;color:#f2efff;font-size:14px;cursor:pointer;transition:border-color .15s}
+.qopt:hover{border-color:#22d3ee}
+.qopt.right{border-color:#34d399;background:#0c2b1f}
+.qopt.wrong{border-color:#fb7185;background:#351327}
 .qnum{display:flex;gap:8px;align-items:center;margin:7px 0}
-.qnum input{flex:1;padding:9px 12px;border-radius:10px;border:1.5px solid #24405f;background:#0e2138;color:#eaf2ff;font-size:15px;outline:none}
-.qnum input:focus{border-color:#3aa0ee}
-.qsol{margin-top:10px;padding:10px 13px;border-left:3px solid #39b54a;background:rgba(57,181,74,.08);border-radius:9px;font-size:13.5px}
-.qtrap{margin-top:8px;padding:10px 13px;border-left:3px solid #f5821f;background:rgba(245,130,31,.08);border-radius:9px;font-size:13.5px}
+.qnum input{flex:1;padding:9px 12px;border-radius:10px;border:1.5px solid #322a5e;background:#181138;color:#f2efff;font-size:15px;outline:none}
+.qnum input:focus{border-color:#22d3ee}
+.qsol{margin-top:10px;padding:10px 13px;border-left:3px solid #34d399;background:rgba(52,211,153,.08);border-radius:9px;font-size:13.5px}
+.qtrap{margin-top:8px;padding:10px 13px;border-left:3px solid #fbbf24;background:rgba(251,191,36,.08);border-radius:9px;font-size:13.5px}
 .qbtns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.qbtns button{flex:1;min-width:90px;padding:10px;border-radius:11px;border:1.5px solid #24405f;background:#11304f;color:#eaf2ff;font-weight:700;font-size:13.5px;cursor:pointer}
-.qbtns button.go{background:#1b75bc;border-color:#1b75bc}
-.qbtns button:hover{border-color:#3aa0ee}
-.qsel{width:100%;padding:9px 12px;border-radius:10px;border:1.5px solid #24405f;background:#0e2138;color:#eaf2ff;font-size:14px;margin:5px 0}
+.qbtns button{flex:1;min-width:90px;padding:10px;border-radius:11px;border:1.5px solid #322a5e;background:#231b4e;color:#f2efff;font-weight:700;font-size:13.5px;cursor:pointer}
+.qbtns button.go{background:#7c3aed;border-color:#7c3aed}
+.qbtns button:hover{border-color:#22d3ee}
+.qsel{width:100%;padding:9px 12px;border-radius:10px;border:1.5px solid #322a5e;background:#181138;color:#f2efff;font-size:14px;margin:5px 0}
 `}));
 
 /* card icons */
 const ICC={
   intro:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12h7M15 12h7"/><path d="M9 5v14M15 5v14"/></svg>',
-  pplate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 18h16"/><path d="M12 9v5M10 12l2 2 2-2" stroke="#f5821f"/></svg>',
+  pplate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 18h16"/><path d="M12 9v5M10 12l2 2 2-2" stroke="#fbbf24"/></svg>',
   geom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="9"/></svg>',
   combo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 7h6M12 7h10M2 17h6M12 17h10"/><path d="M8 3v8M12 3v8M8 13v8M12 13v8"/></svg>',
   energy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>',
-  diel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h18M3 19h18"/><rect x="6" y="9" width="12" height="6" rx="1" stroke="#f5821f"/></svg>',
-  multi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 4h18M3 20h18"/><path d="M3 9.5h18" stroke="#f5821f"/><path d="M3 15h18" stroke="#39b54a"/></svg>',
-  share:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4v7M9 4v7M15 13v7M19 13v7"/><path d="M9 7h8M7 17h8" stroke="#f5821f"/></svg>',
-  rc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 20V4"/><path d="M3 20h18"/><path d="M3 18c6 0 7-12 18-12" stroke="#f5821f"/></svg>',
-  ckt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l9 9-9 9-9-9z"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#f5821f"/></svg>',
+  diel:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h18M3 19h18"/><rect x="6" y="9" width="12" height="6" rx="1" stroke="#fbbf24"/></svg>',
+  multi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 4h18M3 20h18"/><path d="M3 9.5h18" stroke="#fbbf24"/><path d="M3 15h18" stroke="#34d399"/></svg>',
+  share:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4v7M9 4v7M15 13v7M19 13v7"/><path d="M9 7h8M7 17h8" stroke="#fbbf24"/></svg>',
+  rc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 20V4"/><path d="M3 20h18"/><path d="M3 18c6 0 7-12 18-12" stroke="#fbbf24"/></svg>',
+  ckt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l9 9-9 9-9-9z"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#fbbf24"/></svg>',
   quiz:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.7 2.2c-.8.45-1.2.9-1.2 1.8"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>'
 };
 
@@ -921,31 +961,31 @@ const EM2=(x)=>'<span class="em2">'+x+'</span>';
 
 /* ---- SVG figure kit for the PYQ Arena ---- */
 const FG={
-  svg:(w,h,inner)=>'<svg viewBox="0 0 '+w+' '+h+'"><g fill="none" stroke="#a8c2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</g></svg>',
-  t:(x,y,s,c,sz,a)=>'<text x="'+x+'" y="'+y+'" fill="'+(c||'#eaf2ff')+'" stroke="none" font-size="'+(sz||12)+'" font-weight="600" text-anchor="'+(a||'middle')+'" font-family="-apple-system,Segoe UI,sans-serif">'+s+'</text>',
+  svg:(w,h,inner)=>'<svg viewBox="0 0 '+w+' '+h+'"><g fill="none" stroke="#b6afdd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</g></svg>',
+  t:(x,y,s,c,sz,a)=>'<text x="'+x+'" y="'+y+'" fill="'+(c||'#f2efff')+'" stroke="none" font-size="'+(sz||12)+'" font-weight="600" text-anchor="'+(a||'middle')+'" font-family="-apple-system,Segoe UI,sans-serif">'+s+'</text>',
   w:(pts)=>'<polyline points="'+pts+'"/>',
   cap:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><line x1="-5" y1="-13" x2="-5" y2="13" stroke-width="3"/><line x1="5" y1="-13" x2="5" y2="13" stroke-width="3"/></g>',
   bat:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><line x1="-5" y1="-14" x2="-5" y2="14"/><line x1="5" y1="-8" x2="5" y2="8" stroke-width="4.6"/></g>',
   res:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><polyline points="-22,0 -17,-7 -9,7 -1,-7 7,7 15,-7 20,0"/></g>',
-  sw:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><circle cx="-13" cy="0" r="2.6" fill="#a8c2e8" stroke="none"/><circle cx="13" cy="0" r="2.6" fill="#a8c2e8" stroke="none"/><line x1="-13" y1="0" x2="10" y2="-13"/></g>',
-  dot:(x,y,c)=>'<circle cx="'+x+'" cy="'+y+'" r="3.4" fill="'+(c||'#ffd23d')+'" stroke="none"/>',
+  sw:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><circle cx="-13" cy="0" r="2.6" fill="#b6afdd" stroke="none"/><circle cx="13" cy="0" r="2.6" fill="#b6afdd" stroke="none"/><line x1="-13" y1="0" x2="10" y2="-13"/></g>',
+  dot:(x,y,c)=>'<circle cx="'+x+'" cy="'+y+'" r="3.4" fill="'+(c||'#fde047')+'" stroke="none"/>',
   box:(x,y,w,h,c,o)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+c+'" fill-opacity="'+(o==null?0.28:o)+'" stroke="'+c+'" stroke-opacity=".75"/>',
   gnd:(x,y)=>'<g transform="translate('+x+','+y+')"><line x1="0" y1="0" x2="0" y2="8"/><line x1="-11" y1="8" x2="11" y2="8"/><line x1="-7" y1="13" x2="7" y2="13"/><line x1="-3" y1="18" x2="3" y2="18"/></g>',
   arr:(x1,y1,x2,y2,c)=>{const a=Math.atan2(y2-y1,x2-x1),h=8;
     return '<g stroke="'+c+'" fill="'+c+'"><line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/><path stroke="none" d="M'+x2+' '+y2+'L'+(x2-h*Math.cos(a-0.42))+' '+(y2-h*Math.sin(a-0.42))+'L'+(x2-h*Math.cos(a+0.42))+' '+(y2-h*Math.sin(a+0.42))+'Z"/></g>';}
 };
-const ORN='#f5821f',BLU='#4db2ff',GRN='#39b54a',VIO='#b388ff',MET='#8d9db5';
+const ORN='#fbbf24',BLU='#38bdf8',GRN='#34d399',VIO='#f472b6',MET='#9a94b5';
 const QFIG={
 q3:FG.svg(300,150,
-  '<circle cx="150" cy="78" r="56"/><circle cx="150" cy="78" r="36" fill="#22456b"/>'
-  +FG.arr(150,78,176,52,'#a8c2e8')+FG.t(158,62,'a')
+  '<circle cx="150" cy="78" r="56"/><circle cx="150" cy="78" r="36" fill="#2d2660"/>'
+  +FG.arr(150,78,176,52,'#b6afdd')+FG.t(158,62,'a')
   +FG.t(150,14,'outer shell b',void 0,11)+FG.w('150,22 150,40')
-  +FG.t(248,78,'b−a = 1 mm','#ffd23d',11,'start')+FG.arr(244,78,210,78,'#ffd23d')),
+  +FG.t(248,78,'b−a = 1 mm','#fde047',11,'start')+FG.arr(244,78,210,78,'#fde047')),
 q4:FG.svg(330,150,
-  '<rect x="35" y="40" width="180" height="70" rx="3"/><rect x="35" y="60" width="180" height="30" fill="#22456b"/>'
+  '<rect x="35" y="40" width="180" height="70" rx="3"/><rect x="35" y="60" width="180" height="30" fill="#2d2660"/>'
   +FG.t(125,28,'L = 15 cm')+FG.w('35,32 35,38')+FG.w('215,32 215,38')+FG.w('41,32 209,32')
-  +'<circle cx="282" cy="75" r="38"/><circle cx="282" cy="75" r="27" fill="#22456b"/>'
-  +FG.t(282,79,'a=1.4','#eaf2ff',10)+FG.t(282,128,'b = 1.5 cm',void 0,11)
+  +'<circle cx="282" cy="75" r="38"/><circle cx="282" cy="75" r="27" fill="#2d2660"/>'
+  +FG.t(282,79,'a=1.4','#f2efff',10)+FG.t(282,128,'b = 1.5 cm',void 0,11)
   +FG.t(125,132,'side view',void 0,10.5)),
 q5:FG.svg(330,160,
   [25,55,85,115,145].map((y,i)=>'<line x1="105" y1="'+y+'" x2="225" y2="'+y+'" stroke-width="4.5" stroke="'+(i%2?BLU:ORN)+'"/>').join('')
@@ -961,20 +1001,20 @@ q7:FG.svg(340,180,
   +FG.w('170,30 170,150')
   +FG.cap(105,60,-25)+FG.cap(235,60,25)+FG.cap(105,120,25)+FG.cap(235,120,-25)+FG.cap(170,90,90)
   +FG.w('40,90 14,90')+FG.w('300,90 326,90')
-  +FG.dot(40,90,'#a8c2e8')+FG.dot(300,90,'#a8c2e8')
+  +FG.dot(40,90,'#b6afdd')+FG.dot(300,90,'#b6afdd')
   +FG.t(28,82,'A')+FG.t(312,82,'B')+FG.t(170,20,'P')+FG.t(170,168,'Q')
-  +FG.t(80,42,'4µF','#9db6da',10.5)+FG.t(262,42,'4µF','#9db6da',10.5)
-  +FG.t(80,140,'4µF','#9db6da',10.5)+FG.t(262,140,'4µF','#9db6da',10.5)
-  +FG.t(192,92,'4µF','#9db6da',10.5,'start')),
+  +FG.t(80,42,'4µF','#a8a2cc',10.5)+FG.t(262,42,'4µF','#a8a2cc',10.5)
+  +FG.t(80,140,'4µF','#a8a2cc',10.5)+FG.t(262,140,'4µF','#a8a2cc',10.5)
+  +FG.t(192,92,'4µF','#a8a2cc',10.5,'start')),
 q10:FG.svg(330,160,
-  FG.w('60,40 125,40')+FG.dot(168,40,'#a8c2e8')+FG.dot(125,40,'#a8c2e8')+FG.dot(212,40,'#a8c2e8')
+  FG.w('60,40 125,40')+FG.dot(168,40,'#b6afdd')+FG.dot(125,40,'#b6afdd')+FG.dot(212,40,'#b6afdd')
   +'<line x1="168" y1="40" x2="130" y2="24" stroke-dasharray="3 4"/><line x1="168" y1="40" x2="208" y2="26"/>'
   +FG.w('212,40 280,40')
   +FG.w('60,40 60,55')+FG.bat(60,75,90)+FG.w('60,95 60,130 280,130')
   +FG.w('168,40 168,58')+FG.cap(168,75,90)+FG.w('168,92 168,130')
   +FG.w('280,40 280,58')+FG.cap(280,75,90)+FG.w('280,92 280,130')
-  +FG.t(118,16,'1','#9db6da',11)+FG.t(214,16,'2',ORN,11)
-  +FG.t(40,80,'V','#9db6da',12)+FG.t(146,80,'2µF',ORN,11,'end')+FG.t(300,80,'8µF',BLU,11,'start')
+  +FG.t(118,16,'1','#a8a2cc',11)+FG.t(214,16,'2',ORN,11)
+  +FG.t(40,80,'V','#a8a2cc',12)+FG.t(146,80,'2µF',ORN,11,'end')+FG.t(300,80,'8µF',BLU,11,'start')
   +FG.t(165,152,'switch: 1 = charge, 2 = share',void 0,10.5)),
 q16:FG.svg(320,150,
   '<line x1="58" y1="32" x2="262" y2="32" stroke-width="5"/><line x1="58" y1="118" x2="262" y2="118" stroke-width="5"/>'
@@ -986,7 +1026,7 @@ q17:FG.svg(320,160,
   '<line x1="68" y1="28" x2="252" y2="28" stroke-width="5"/><line x1="68" y1="132" x2="252" y2="132" stroke-width="5"/>'
   +[0,1,2,3,4,5].map(i=>FG.box(70,31.5+i*16.5,180,15,BLU,0.12+i*0.09)).join('')
   +FG.t(258,40,'K(1+1/N)',BLU,10.5,'start')+FG.t(258,128,'→ 2K',BLU,10.5,'start')
-  +FG.w('56,31 50,31 50,46 56,46')+FG.t(44,42,'δ=d/N','#ffd23d',10,'end')
+  +FG.w('56,31 50,31 50,46 56,46')+FG.t(44,42,'δ=d/N','#fde047',10,'end')
   +FG.t(160,14,'N thin layers STACKED along the field',void 0,10.5)
   +FG.t(160,152,'⇒ series — integrate 1/K',ORN,11)),
 q18:FG.svg(320,160,
@@ -997,20 +1037,20 @@ q18:FG.svg(320,160,
 q19:FG.svg(300,140,
   '<line x1="56" y1="28" x2="244" y2="28" stroke-width="5"/><line x1="56" y1="112" x2="244" y2="112" stroke-width="5"/>'
   +FG.box(56,52,188,36,MET,0.45)+FG.t(150,74,'metal sheet  t = d/2','#dfe8f5',11.5)
-  +FG.w('264,28 264,112')+FG.w('259,28 269,28')+FG.w('259,112 269,112')+FG.t(280,74,'d','#ffd23d',12,'middle')
+  +FG.w('264,28 264,112')+FG.w('259,28 269,28')+FG.w('259,112 269,112')+FG.t(280,74,'d','#fde047',12,'middle')
   +FG.t(150,132,'E = 0 inside the conductor',ORN,11)),
 q21:FG.svg(340,160,
   '<line x1="60" y1="42" x2="270" y2="42" stroke-width="5"/><line x1="60" y1="104" x2="270" y2="104" stroke-width="5"/>'
   +FG.box(60,46,92,54,ORN,0.4)+FG.t(106,78,'K','#ffd9b3',14)
   +FG.arr(168,73,206,73,ORN)+FG.t(188,62,'F',ORN,13)
-  +FG.w('60,118 152,118')+FG.w('60,113 60,123')+FG.w('152,113 152,123')+FG.t(106,134,'x','#ffd23d',12)
+  +FG.w('60,118 152,118')+FG.w('60,113 60,123')+FG.w('152,113 152,123')+FG.t(106,134,'x','#fde047',12)
   +FG.w('270,42 300,42 300,56')+FG.bat(300,72,90)+FG.w('300,88 300,104 270,104')
-  +FG.t(322,76,'V','#9db6da',12)+FG.t(165,24,'plate length L',void 0,10.5)),
+  +FG.t(322,76,'V','#a8a2cc',12)+FG.t(165,24,'plate length L',void 0,10.5)),
 q22:FG.svg(320,140,
   FG.w('55,30 105,30')+FG.sw(125,30)+FG.w('145,30 178,30')+FG.res(200,30)+FG.w('222,30 275,30 275,100 180,100')
   +FG.cap(165,100)+FG.w('150,100 55,100 55,90')
   +FG.bat(55,72,90)+FG.w('55,54 55,30')
-  +FG.t(33,76,'12 V','#9db6da',11)+FG.t(200,14,'2.5 MΩ','#9db6da',11)+FG.t(165,124,'4 µF','#9db6da',11)+FG.t(125,14,'S','#9db6da',11)),
+  +FG.t(33,76,'12 V','#a8a2cc',11)+FG.t(200,14,'2.5 MΩ','#a8a2cc',11)+FG.t(165,124,'4 µF','#a8a2cc',11)+FG.t(125,14,'S','#a8a2cc',11)),
 q23:FG.svg(340,160,
   FG.dot(28,80,ORN)+FG.t(28,66,'A',ORN,12)+FG.w('28,80 62,80')
   +FG.w('62,45 62,115')+FG.w('62,45 90,45')+FG.res(112,45)+FG.w('134,45 162,45')
@@ -1019,39 +1059,39 @@ q23:FG.svg(340,160,
   +FG.w('196,45 196,115')+FG.w('196,45 234,45')+FG.cap(246,45)+FG.w('258,45 296,45')
   +FG.w('196,115 234,115')+FG.cap(246,115)+FG.w('258,115 296,115')+FG.w('296,45 296,115')
   +FG.w('296,80 322,80')+FG.dot(322,80,BLU)+FG.t(322,66,'B',BLU,12)
-  +FG.t(112,30,'2 MΩ','#9db6da',10.5)+FG.t(112,136,'2 MΩ','#9db6da',10.5)
-  +FG.t(246,30,'2 µF','#9db6da',10.5)+FG.t(246,136,'2 µF','#9db6da',10.5)
+  +FG.t(112,30,'2 MΩ','#a8a2cc',10.5)+FG.t(112,136,'2 MΩ','#a8a2cc',10.5)
+  +FG.t(246,30,'2 µF','#a8a2cc',10.5)+FG.t(246,136,'2 µF','#a8a2cc',10.5)
   +FG.t(170,152,'10 V applied across A–B at t = 0',void 0,10.5)),
 q25:FG.svg(330,160,
   '<line x1="56" y1="30" x2="234" y2="30" stroke-width="5"/><line x1="56" y1="120" x2="234" y2="120" stroke-width="5"/>'
   +FG.box(56,86,178,34,BLU,0.35)+FG.t(145,108,'liquid K = 2','#bfe6ff',11)
   +FG.t(145,62,'air',void 0,11)
-  +FG.arr(214,72,214,92,'#ffd23d')+FG.t(224,80,'v','#ffd23d',12,'start')
+  +FG.arr(214,72,214,92,'#fde047')+FG.t(224,80,'v','#fde047',12,'start')
   +FG.w('234,30 282,30 282,52')+FG.res(282,72,90)+FG.w('282,92 282,120 234,120')
-  +FG.t(304,76,'R','#9db6da',12)
+  +FG.t(304,76,'R','#a8a2cc',12)
   +FG.t(145,146,'liquid drains: thickness d/3 − vt',void 0,10.5)),
 q26:FG.svg(340,180,
   FG.w('48,40 96,40')+FG.cap(112,40)+FG.w('128,40 168,40')+FG.dot(180,40,ORN)+FG.w('192,40 226,40')+FG.cap(242,40)+FG.w('258,40 300,40 300,150')
   +FG.w('48,40 48,62')+FG.bat(48,82,90)+FG.w('48,102 48,150 96,150')
   +FG.res(118,150)+FG.w('140,150 168,150')+FG.dot(180,150,GRN)+FG.w('192,150 222,150')+FG.res(244,150)+FG.w('266,150 300,150')
   +FG.w('180,52 180,72')+FG.sw(180,92,90)+FG.w('180,112 180,138')
-  +FG.t(112,24,'3 µF','#9db6da',11)+FG.t(242,24,'6 µF','#9db6da',11)
-  +FG.t(118,170,'3 Ω','#9db6da',11)+FG.t(244,170,'6 Ω','#9db6da',11)
+  +FG.t(112,24,'3 µF','#a8a2cc',11)+FG.t(242,24,'6 µF','#a8a2cc',11)
+  +FG.t(118,170,'3 Ω','#a8a2cc',11)+FG.t(244,170,'6 Ω','#a8a2cc',11)
   +FG.t(196,44,'X',ORN,12,'start')+FG.t(196,154,'Y',GRN,12,'start')
-  +FG.t(160,96,'S','#9db6da',12,'end')+FG.t(26,86,'9 V','#9db6da',11)),
+  +FG.t(160,96,'S','#a8a2cc',12,'end')+FG.t(26,86,'9 V','#a8a2cc',11)),
 q27:FG.svg(330,170,
   FG.w('52,24 290,24')+FG.w('52,146 290,146')
   +FG.w('52,24 52,40')+FG.bat(52,58,90)+FG.w('52,76 52,88')+FG.res(52,108,90)+FG.w('52,128 52,146')
   +FG.w('170,24 170,58')+FG.res(170,78,90)+FG.w('170,98 170,146')
   +FG.w('250,24 250,38')+FG.res(250,56,90)+FG.w('250,76 250,96')+FG.cap(250,112,90)+FG.w('250,128 250,146')
-  +FG.t(30,62,'E','#9db6da',12)+FG.t(30,112,'r','#9db6da',12)
-  +FG.t(190,82,'r₂','#9db6da',12,'start')+FG.t(270,60,'r₁','#9db6da',12,'start')+FG.t(270,116,'C','#9db6da',12,'start')),
+  +FG.t(30,62,'E','#a8a2cc',12)+FG.t(30,112,'r','#a8a2cc',12)
+  +FG.t(190,82,'r₂','#a8a2cc',12,'start')+FG.t(270,60,'r₁','#a8a2cc',12,'start')+FG.t(270,116,'C','#a8a2cc',12,'start')),
 q28:FG.svg(280,180,
-  FG.t(140,16,'+80 µC',ORN,12)+FG.w('140,22 140,36')+FG.cap(140,52,90)+FG.w('140,68 140,84')+FG.dot(140,84,'#a8c2e8')
+  FG.t(140,16,'+80 µC',ORN,12)+FG.w('140,22 140,36')+FG.cap(140,52,90)+FG.w('140,68 140,84')+FG.dot(140,84,'#b6afdd')
   +FG.w('140,84 90,84 90,96')+FG.cap(90,112,90)+FG.w('90,128 90,144')
   +FG.w('140,84 190,84 190,96')+FG.cap(190,112,90)+FG.w('190,128 190,144')
   +FG.w('90,144 190,144')+FG.gnd(140,146)
-  +FG.t(118,56,'4 µF','#9db6da',11,'end')+FG.t(68,116,'2 µF','#9db6da',11,'end')+FG.t(212,116,'3 µF','#9db6da',11,'start')),
+  +FG.t(118,56,'4 µF','#a8a2cc',11,'end')+FG.t(68,116,'2 µF','#a8a2cc',11,'end')+FG.t(212,116,'3 µF','#a8a2cc',11,'start')),
 };
 
 /* ============================================================
@@ -1091,7 +1131,7 @@ registerModule({
       qNow+=(tgt-qNow)*k; lastI=i;
       flowPh+=i*dt*6;
       ro.set('q',fmt(qNow,1)); ro.set('tgt',fmt(tgt,1));
-      ro.set('i',Math.abs(i)<1.5?'<b style="color:#39b54a">zero — fully charged</b>':(i>0?'→ charging':'← discharging'));
+      ro.set('i',Math.abs(i)<1.5?'<b style="color:#34d399">zero — fully charged</b>':(i>0?'→ charging':'← discharging'));
       const r=uRows([1.45,1]);
       circuitZone(r[0],V,qNow,i);
       graphZone(r[1],V,Cv,qNow);
@@ -1109,11 +1149,11 @@ registerModule({
       Kit.wire(Lp.slice(1)); Kit.wire([Lp[1],[cx-150,byy]]); Kit.wire(Rp.slice(0,3)); Kit.wire([Rp[2],Rp[3]]);
       Kit.battery(cx,byy,true,false,fmt(V,1)+' V battery');
       // plates
-      ctx.save();ctx.fillStyle='#b9cde9';
+      ctx.save();ctx.fillStyle='#d8d4f2';
       rrect(cx-gap/2-th,py-pj,th,2*pj,3);ctx.fill();
       rrect(cx+gap/2,py-pj,th,2*pj,3);ctx.fill();ctx.restore();
       Draw.label(cx-gap/2-th-8,py-pj-8,'+Q',C.orange,'800 14px -apple-system,sans-serif','right');
-      Draw.label(cx+gap/2+th+8,py-pj-8,'−Q','#4db2ff','800 14px -apple-system,sans-serif');
+      Draw.label(cx+gap/2+th+8,py-pj-8,'−Q','#38bdf8','800 14px -apple-system,sans-serif');
       // charges on inner faces, count ∝ q
       const n=Math.round(clamp(q/120,0,1)*12);
       for(let j=0;j<n;j++){ const y=lerp(py-pj+14,py+pj-14,n===1?0.5:j/(n-1));
@@ -1129,12 +1169,12 @@ registerModule({
       }
     }
     function graphZone(z,V,Cv,q){
-      uZone(z,'#05101f');
-      uTitle(z,'Q vs V — every capacitor lives on a straight line through the origin; SLOPE = C','#9db6da');
+      uZone(z,'#0a0718');
+      uTitle(z,'Q vs V — every capacitor lives on a straight line through the origin; SLOPE = C','#a8a2cc');
       const P=plotFrame(z,'V (volt)','Q (µC)');
       // faint family of other capacitances
       [2,6,10].forEach(cc=>{ if(Math.abs(cc-Cv)<0.01)return;
-        plotCurve(P,u=>u*12*cc/120,'rgba(120,160,210,.18)',1.6); });
+        plotCurve(P,u=>u*12*cc/120,'rgba(150,142,200,.18)',1.6); });
       plotCurve(P,u=>u*12*Cv/120,C.blue,2.8);
       Draw.label(P.mx(0.78)+6,P.my(0.78*12*Cv/120)-10,'slope = C = '+fmt(Cv,1)+' µF',C.blue,'700 12px -apple-system,sans-serif');
       // live state dot
@@ -1190,7 +1230,7 @@ registerModule({
       const halfW=lerp(70,Math.min(260,z.w*0.36),(Math.sqrt(A*1e4)-Math.sqrt(10))/(10-Math.sqrt(10)));
       const gap=lerp(20,Math.min(150,z.h*0.46),(d*1e3-0.5)/4.5), th=9;
       // plates
-      ctx.save();ctx.fillStyle='#b9cde9';
+      ctx.save();ctx.fillStyle='#d8d4f2';
       rrect(cx-halfW,cy-gap/2-th,2*halfW,th,3);ctx.fill();
       rrect(cx-halfW,cy+gap/2,2*halfW,th,3);ctx.fill();ctx.restore();
       // wires to battery (right side)
@@ -1203,17 +1243,17 @@ registerModule({
       for(let j=0;j<n;j++){ const x=lerp(cx-halfW+12,cx+halfW-12,n===1?0.5:j/(n-1));
         Kit.q(x,cy-gap/2-th/2,+1); Kit.q(x,cy+gap/2+th/2,-1); }
       Draw.label(cx-halfW-10,cy-gap/2-th/2+4,'+σ',C.orange,'800 13px -apple-system,sans-serif','right');
-      Draw.label(cx-halfW-10,cy+gap/2+th/2+4,'−σ','#4db2ff','800 13px -apple-system,sans-serif','right');
+      Draw.label(cx-halfW-10,cy+gap/2+th/2+4,'−σ','#38bdf8','800 13px -apple-system,sans-serif','right');
       // uniform field
       Kit.fieldDown(cx-halfW+18,cx+halfW-18,cy-gap/2+6,cy+gap/2-6,Math.max(3,Math.round(halfW/26)),clamp(Ef/24000,0.15,1));
       Draw.label(cx,cy+4,'E = V/d',C.green,'italic 700 13px Georgia','center');
       // fringing
-      if(ckFr.get()){ ctx.save();ctx.strokeStyle='rgba(57,181,74,.5)';ctx.lineWidth=1.6;
+      if(ckFr.get()){ ctx.save();ctx.strokeStyle='rgba(52,211,153,.5)';ctx.lineWidth=1.6;
         [[-1,cx-halfW],[1,cx+halfW]].forEach(([s,x])=>{
           ctx.beginPath();ctx.moveTo(x,cy-gap/2);ctx.bezierCurveTo(x+18*s,cy-gap/4,x+18*s,cy+gap/4,x,cy+gap/2);ctx.stroke();
           ctx.beginPath();ctx.moveTo(x,cy-gap/2);ctx.bezierCurveTo(x+34*s,cy-gap/5,x+34*s,cy+gap/5,x,cy+gap/2);ctx.stroke();
         });ctx.restore();
-        Draw.label(cx-halfW-14,cy+gap/2+26,'fringing (ignored in C = ε₀A/d)','rgba(57,181,74,.65)','600 10.5px -apple-system,sans-serif','right');
+        Draw.label(cx-halfW-14,cy+gap/2+26,'fringing (ignored in C = ε₀A/d)','rgba(52,211,153,.65)','600 10.5px -apple-system,sans-serif','right');
       }
       // d marker
       arrow(cx,cy-gap/2+2,cx,cy+gap/2-2,'rgba(255,210,61,0)',0.1);
@@ -1223,16 +1263,16 @@ registerModule({
       Draw.label(cx-halfW-36,cy+4,'d',C.yellow,'italic 700 13px Georgia','right');
     }
     function graphZone(z,Cf){
-      uZone(z,'#05101f');
+      uZone(z,'#0a0718');
       const mode=gSeg.get(), A=sA.get(), d=sD.get();
       const CMAX=EPS0*100e-4/0.5e-3*1e12;  // 177 pF
       if(mode==='d'){
-        uTitle(z,'C vs d (A fixed at '+fmt(A,0)+' cm²) — a hyperbola: halve the gap, double the C','#9db6da');
+        uTitle(z,'C vs d (A fixed at '+fmt(A,0)+' cm²) — a hyperbola: halve the gap, double the C','#a8a2cc');
         const P=plotFrame(z,'d (mm)','C (pF)');
         plotCurve(P,u=>{const dd=lerp(0.5,5,u);return (EPS0*A*1e-4/(dd*1e-3)*1e12)/CMAX;},C.blue,2.6);
         Draw.dot(P.mx((d-0.5)/4.5),P.my(Cf*1e12/CMAX),6,C.orange,14);
       }else{
-        uTitle(z,'C vs A (d fixed at '+fmt(d,1)+' mm) — a straight line: C ∝ A','#9db6da');
+        uTitle(z,'C vs A (d fixed at '+fmt(d,1)+' mm) — a straight line: C ∝ A','#a8a2cc');
         const P=plotFrame(z,'A (cm²)','C (pF)');
         plotCurve(P,u=>{const aa=lerp(10,100,u);return (EPS0*aa*1e-4/(d*1e-3)*1e12)/CMAX;},C.green,2.6);
         Draw.dot(P.mx((A-10)/90),P.my(Cf*1e12/CMAX),6,C.orange,14);
@@ -1301,23 +1341,23 @@ registerModule({
       const a=sa.get(), b=Math.max(sb.get(),a+0.5);
       const cx=z.x+z.w/2, cy=z.y+z.h/2+8, sc=Math.min(z.h*0.42,150)/14;
       const ra=a*sc, rb=b*sc;
-      ctx.save();ctx.strokeStyle='#b9cde9';ctx.lineWidth=4;ctx.beginPath();ctx.arc(cx,cy,rb,0,TAU);ctx.stroke();
-      ctx.fillStyle='#22456b';ctx.beginPath();ctx.arc(cx,cy,ra,0,TAU);ctx.fill();
-      ctx.strokeStyle='#b9cde9';ctx.lineWidth=3;ctx.stroke();ctx.restore();
-      radial(cx,cy,ra+8,rb-8,12,'rgba(57,181,74,.75)');
+      ctx.save();ctx.strokeStyle='#d8d4f2';ctx.lineWidth=4;ctx.beginPath();ctx.arc(cx,cy,rb,0,TAU);ctx.stroke();
+      ctx.fillStyle='#2d2660';ctx.beginPath();ctx.arc(cx,cy,ra,0,TAU);ctx.fill();
+      ctx.strokeStyle='#d8d4f2';ctx.lineWidth=3;ctx.stroke();ctx.restore();
+      radial(cx,cy,ra+8,rb-8,12,'rgba(52,211,153,.75)');
       ringQ(cx,cy,ra+5,10,+1); ringQ(cx,cy,rb-6,10,-1);
       Draw.label(cx,cy-ra-10,'a = '+fmt(a,1)+' cm',C.orange,'700 12px -apple-system,sans-serif','center');
-      Draw.label(cx,cy-rb-8,'b = '+fmt(b,1)+' cm','#4db2ff','700 12px -apple-system,sans-serif','center');
+      Draw.label(cx,cy-rb-8,'b = '+fmt(b,1)+' cm','#38bdf8','700 12px -apple-system,sans-serif','center');
       const Cf=4*Math.PI*EPS0*(a/100)*(b/100)/((b-a)/100);
       ro.set('c',fmt(Cf*1e12,2)+' <span class="u">pF</span>');
       ro.set('note','isolated-sphere limit 4πε₀a = '+fmt(4*Math.PI*EPS0*a/100*1e12,2)+' pF');
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,'C vs outer radius b (a fixed) — as b→∞, C settles at the isolated-sphere value 4πε₀a','#9db6da');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'C vs outer radius b (a fixed) — as b→∞, C settles at the isolated-sphere value 4πε₀a','#a8a2cc');
       const P=plotFrame(g,'b (cm)','C (pF)');
       const cMax=4*Math.PI*EPS0*(a/100)*((a+0.5)/100)/(0.5/100)*1e12;
       plotCurve(P,u=>{const bb=lerp(a+0.5,14,u);return 4*Math.PI*EPS0*(a/100)*(bb/100)/((bb-a)/100)*1e12/cMax;},C.blue,2.6);
       const yLim=4*Math.PI*EPS0*a/100*1e12/cMax;
-      ctx.save();ctx.strokeStyle='rgba(245,130,31,.6)';ctx.setLineDash([4,5]);
+      ctx.save();ctx.strokeStyle='rgba(251,191,36,.6)';ctx.setLineDash([4,5]);
       ctx.beginPath();ctx.moveTo(P.px0,P.my(yLim));ctx.lineTo(P.px1,P.my(yLim));ctx.stroke();ctx.restore();
       Draw.label(P.px1-4,P.my(yLim)-7,'4πε₀a (b→∞)',C.orange,'600 11px -apple-system,sans-serif','right');
       Draw.dot(P.mx((b-a-0.5)/(14-a-0.5)),P.my(4*Math.PI*EPS0*(a/100)*(b/100)/((b-a)/100)*1e12/cMax),6,C.orange,14);
@@ -1330,25 +1370,25 @@ registerModule({
       // side view (left 55%)
       const x0=z.x+30, x1=z.x+z.w*0.55, sc=Math.min(z.h*0.36,120)/14;
       const ha=a*sc, hb=b*sc;
-      ctx.save();ctx.strokeStyle='#b9cde9';ctx.lineWidth=2.5;
+      ctx.save();ctx.strokeStyle='#d8d4f2';ctx.lineWidth=2.5;
       ctx.strokeRect(x0,cy-hb,x1-x0,2*hb);
-      ctx.fillStyle='#22456b';ctx.fillRect(x0,cy-ha,x1-x0,2*ha);
+      ctx.fillStyle='#2d2660';ctx.fillRect(x0,cy-ha,x1-x0,2*ha);
       ctx.strokeRect(x0,cy-ha,x1-x0,2*ha);ctx.restore();
-      Draw.label((x0+x1)/2,cy-hb-8,'L = '+fmt(L,1)+' m','#9db6da','700 12px -apple-system,sans-serif','center');
+      Draw.label((x0+x1)/2,cy-hb-8,'L = '+fmt(L,1)+' m','#a8a2cc','700 12px -apple-system,sans-serif','center');
       for(let i=0;i<5;i++){ const x=lerp(x0+20,x1-20,i/4);
-        arrow(x,cy-ha-2,x,cy-hb+4,'rgba(57,181,74,.7)',1.7); arrow(x,cy+ha+2,x,cy+hb-4,'rgba(57,181,74,.7)',1.7); }
+        arrow(x,cy-ha-2,x,cy-hb+4,'rgba(52,211,153,.7)',1.7); arrow(x,cy+ha+2,x,cy+hb-4,'rgba(52,211,153,.7)',1.7); }
       // cross-section (right)
       const ccx=z.x+z.w*0.78;
-      ctx.save();ctx.strokeStyle='#b9cde9';ctx.lineWidth=3.5;ctx.beginPath();ctx.arc(ccx,cy,hb,0,TAU);ctx.stroke();
-      ctx.fillStyle='#22456b';ctx.beginPath();ctx.arc(ccx,cy,ha,0,TAU);ctx.fill();ctx.lineWidth=2.5;ctx.stroke();ctx.restore();
-      radial(ccx,cy,ha+6,hb-7,10,'rgba(57,181,74,.7)');
-      Draw.label(ccx,cy-hb-8,'b = '+fmt(b,1)+' cm','#4db2ff','700 12px -apple-system,sans-serif','center');
+      ctx.save();ctx.strokeStyle='#d8d4f2';ctx.lineWidth=3.5;ctx.beginPath();ctx.arc(ccx,cy,hb,0,TAU);ctx.stroke();
+      ctx.fillStyle='#2d2660';ctx.beginPath();ctx.arc(ccx,cy,ha,0,TAU);ctx.fill();ctx.lineWidth=2.5;ctx.stroke();ctx.restore();
+      radial(ccx,cy,ha+6,hb-7,10,'rgba(52,211,153,.7)');
+      Draw.label(ccx,cy-hb-8,'b = '+fmt(b,1)+' cm','#38bdf8','700 12px -apple-system,sans-serif','center');
       Draw.label(ccx,cy+4,'a',C.orange,'700 12px -apple-system,sans-serif','center');
       const CperL=2*Math.PI*EPS0/Math.log(b/a);
       ro.set('c',fmt(CperL*L*1e12,2)+' <span class="u">pF</span> &nbsp;('+fmt(CperL*1e12,1)+' pF/m)');
       ro.set('note','C ∝ 1/ln(b/a) — logs grow slowly, so C barely moves with b');
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,'C per metre vs b/a — the logarithm makes this curve remarkably flat','#9db6da');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'C per metre vs b/a — the logarithm makes this curve remarkably flat','#a8a2cc');
       const P=plotFrame(g,'b/a','C/L (pF/m)');
       const yM=2*Math.PI*EPS0/Math.log(1.15)*1e12;
       plotCurve(P,u=>{const ratio=lerp(1.15,6,u);return 2*Math.PI*EPS0/Math.log(ratio)*1e12/yM;},C.violet,2.6);
@@ -1365,23 +1405,23 @@ registerModule({
       const gr=ctx.createRadialGradient(cx-rr_*0.3,cy-rr_*0.3,rr_*0.1,cx,cy,rr_);
       gr.addColorStop(0,earth?'#3f8edc':'#7da7d9'); gr.addColorStop(1,earth?'#123c77':'#23476f');
       ctx.fillStyle=gr;ctx.beginPath();ctx.arc(cx,cy,rr_,0,TAU);ctx.fill();
-      ctx.strokeStyle='#b9cde9';ctx.lineWidth=2.5;ctx.stroke();ctx.restore();
-      if(earth){ ctx.save();ctx.fillStyle='rgba(57,181,74,.85)';
+      ctx.strokeStyle='#d8d4f2';ctx.lineWidth=2.5;ctx.stroke();ctx.restore();
+      if(earth){ ctx.save();ctx.fillStyle='rgba(52,211,153,.85)';
         ctx.beginPath();ctx.ellipse(cx-rr_*0.3,cy-rr_*0.25,rr_*0.32,rr_*0.2,0.5,0,TAU);ctx.fill();
         ctx.beginPath();ctx.ellipse(cx+rr_*0.35,cy+rr_*0.3,rr_*0.25,rr_*0.16,-0.4,0,TAU);ctx.fill();ctx.restore();
         Draw.label(cx,cy-rr_-12,'🌍 That\'s Earth! C ≈ 709 µF — still under a millifarad',C.green,'800 14px -apple-system,sans-serif','center');
       }
-      radial(cx,cy,rr_+6,rr_+40,14,'rgba(57,181,74,.6)');
+      radial(cx,cy,rr_+6,rr_+40,14,'rgba(52,211,153,.6)');
       ringQ(cx,cy,rr_-7,Math.round(clamp(rr_/9,6,18)),+1);
       const Cf=4*Math.PI*EPS0*R;
       ro.set('c',autoCap(Cf));
       ro.set('note','for C = 1 F you need R ≈ 9×10⁹ m ≈ 1400 Earth radii');
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,'log C vs log R — a straight line of slope 1, spanning 9 orders of magnitude','#9db6da');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'log C vs log R — a straight line of slope 1, spanning 9 orders of magnitude','#a8a2cc');
       const P=plotFrame(g,'log₁₀ R (m)','log₁₀ C');
       plotCurve(P,u=>u,C.green,2.6);
       const em=(Math.log10(6.371e6)+2)/8.81;
-      Draw.dot(P.mx(em),P.my(em),4.5,'#39b54a',8);
+      Draw.dot(P.mx(em),P.my(em),4.5,'#34d399',8);
       Draw.label(P.mx(em)+8,P.my(em)-6,'Earth',C.green,'700 11px -apple-system,sans-serif');
       Draw.dot(P.mx((lv+2)/8.81),P.my((lv+2)/8.81),6,C.orange,14);
     }
@@ -1454,7 +1494,7 @@ registerModule({
         Draw.label(x,yT+34,'V'+(i+1)+' = '+fmt(Vs[i],2)+' V',C.green,'700 12px -apple-system,sans-serif','center');
         Draw.label(x,yT+50,'Q = '+fmt(Qs[i],1)+' µC',C.orange,'600 11px -apple-system,sans-serif','center');
       });
-      Draw.label(z.x+z.w/2,z.y+30,'V₁ + V₂ + V₃ = '+fmt(Vs[0]+Vs[1]+Vs[2],2)+' V = battery ✓','#9db6da','600 12px -apple-system,sans-serif','center');
+      Draw.label(z.x+z.w/2,z.y+30,'V₁ + V₂ + V₃ = '+fmt(Vs[0]+Vs[1]+Vs[2],2)+' V = battery ✓','#a8a2cc','600 12px -apple-system,sans-serif','center');
     }
     function parZone(z,Cs,Qs,Vs,V){
       uZone(z,'#000');
@@ -1474,11 +1514,11 @@ registerModule({
         Draw.label(x+20,ym-14,'C'+(i+1)+' = '+fmt(Cs[i],1)+' µF',C.mut,'700 12px -apple-system,sans-serif');
         Draw.label(x+20,ym+6,'Q'+(i+1)+' = '+fmt(Qs[i],1)+' µC',C.orange,'700 12px -apple-system,sans-serif');
       });
-      Draw.label(z.x+z.w/2,z.y+z.h-14,'Q₁ + Q₂ + Q₃ = '+fmt(Qs[0]+Qs[1]+Qs[2],1)+' µC drawn from the battery','#9db6da','600 12px -apple-system,sans-serif','center');
+      Draw.label(z.x+z.w/2,z.y+z.h-14,'Q₁ + Q₂ + Q₃ = '+fmt(Qs[0]+Qs[1]+Qs[2],1)+' µC drawn from the battery','#a8a2cc','600 12px -apple-system,sans-serif','center');
     }
     function barZone(z,Cs,Ceq){
-      uZone(z,'#05101f');
-      uTitle(z,'C₁, C₂, C₃ vs the equivalent — series shrinks below the smallest, parallel grows beyond the biggest','#9db6da');
+      uZone(z,'#0a0718');
+      uTitle(z,'C₁, C₂, C₃ vs the equivalent — series shrinks below the smallest, parallel grows beyond the biggest','#a8a2cc');
       const names=['C₁','C₂','C₃','C eq'], vals=[...Cs,Ceq], cols=[C.blue,C.violet,C.green,C.orange];
       const maxV=Math.max(36,...vals)*1.12, bw=Math.min(90,z.w/7);
       const y0=z.y+z.h-30, hMax=z.h-66;
@@ -1532,17 +1572,17 @@ registerModule({
       ledgerZone(r[1],U,W,H,Cv,V);
     }
     function triZone(z,Cv,V,v,q){
-      uZone(z,'#05101f');
-      uTitle(z,'v vs q DURING CHARGING — each new dq is lifted through the current v = q/C. Shaded area = energy stored so far.','#9db6da');
+      uZone(z,'#0a0718');
+      uTitle(z,'v vs q DURING CHARGING — each new dq is lifted through the current v = q/C. Shaded area = energy stored so far.','#a8a2cc');
       const P=plotFrame(z,'q (µC)','v (V)');
       const qMax=Cv*V*1.06, vMax=V*1.12;
       // triangle fill up to current q
       const xq=P.mx(q/qMax), yv=P.my(v/vMax);
-      ctx.save();ctx.fillStyle='rgba(57,181,74,.25)';
+      ctx.save();ctx.fillStyle='rgba(52,211,153,.25)';
       ctx.beginPath();ctx.moveTo(P.mx(0),P.my(0));ctx.lineTo(xq,P.my(0));ctx.lineTo(xq,yv);ctx.closePath();ctx.fill();ctx.restore();
       plotCurve(P,u=>u*qMax/Cv/vMax,C.green,2.6);
       // the rectangle the battery "pays for"
-      ctx.save();ctx.strokeStyle='rgba(245,130,31,.55)';ctx.setLineDash([4,5]);ctx.lineWidth=1.6;
+      ctx.save();ctx.strokeStyle='rgba(251,191,36,.55)';ctx.setLineDash([4,5]);ctx.lineWidth=1.6;
       ctx.strokeRect(P.mx(0),P.my(v/vMax),xq-P.mx(0),P.my(0)-P.my(v/vMax));ctx.restore();
       Draw.dot(xq,yv,6,C.orange,14);
       Draw.label(P.mx(0.07),P.my(0.07)-8,'stored = triangle = ½qv',C.green,'700 12px -apple-system,sans-serif');
@@ -1557,7 +1597,7 @@ registerModule({
       const x0=z.x+30, w=z.w-220, y0=z.y+38, bh=Math.min(26,(z.h-56)/3-10);
       rows.forEach((rw,i)=>{
         const y=y0+i*(bh+14);
-        ctx.save();ctx.fillStyle='rgba(120,160,210,.12)';rrect(x0,y,w,bh,7);ctx.fill();
+        ctx.save();ctx.fillStyle='rgba(150,142,200,.12)';rrect(x0,y,w,bh,7);ctx.fill();
         ctx.fillStyle=rw[2];rrect(x0,y,w*clamp(rw[1]/Wmax,0,1),bh,7);ctx.fill();ctx.restore();
         Draw.label(x0+w+10,y+bh/2+4,rw[0]+' — '+fmt(rw[1],1)+' µJ',rw[2],'600 11.5px -apple-system,sans-serif');
       });
@@ -1584,7 +1624,7 @@ registerModule({
     const ckIn=host.Check({label:'Slab inserted',value:false,onChange:v=>tgt=v?1:0});
     host.addPanel('Controls',[sK.el,seg.el,ckIn.el,
       E('p',{class:'tip',html:'Toggle the slab in and out in <b>both battery modes</b> and watch the table. With the battery connected, extra charge visibly flows in along the wires.'})]);
-    host.addPanel('Key formulas',[FX(EM('C')+' = '+MI('K')+'C₀ &nbsp;&nbsp; '+EM2('E')+' = '+FR('E₀',MI('K'))+' <span style="font-size:.75em;color:#9db6da">(Q fixed)</span>'),FX('bound charge&nbsp; Q<sub>b</sub> = '+MI('Q')+'(1 − '+FR('1',MI('K'))+')',1)]);
+    host.addPanel('Key formulas',[FX(EM('C')+' = '+MI('K')+'C₀ &nbsp;&nbsp; '+EM2('E')+' = '+FR('E₀',MI('K'))+' <span style="font-size:.75em;color:#a8a2cc">(Q fixed)</span>'),FX('bound charge&nbsp; Q<sub>b</sub> = '+MI('Q')+'(1 − '+FR('1',MI('K'))+')',1)]);
     const tbl=E('div',{class:'readouts'});
     const cells={};
     [['c','Capacitance C'],['q','Charge Q'],['v','Voltage V'],['e','Field E'],['u','Energy U']].forEach(([k,lab])=>{
@@ -1608,7 +1648,7 @@ registerModule({
       Cv=Keff*C0;
       if(modeV){ V=V0; Q=Cv*V0; Ef=E0; U=0.5*Cv*V0*V0; }
       else{ Q=Q0; V=V0/Keff; Ef=E0/Keff; U=U0/Keff; }
-      const arr=(r)=>r>1.02?' <b style="color:#39b54a">↑ ×'+fmt(r,2)+'</b>':r<0.98?' <b style="color:#ff5a6e">↓ ÷'+fmt(1/r,2)+'</b>':' <b style="color:#9db6da">= same</b>';
+      const arr=(r)=>r>1.02?' <b style="color:#34d399">↑ ×'+fmt(r,2)+'</b>':r<0.98?' <b style="color:#fb7185">↓ ÷'+fmt(1/r,2)+'</b>':' <b style="color:#a8a2cc">= same</b>';
       cells.c.innerHTML=arr(Cv/C0); cells.q.innerHTML=arr(Q/Q0); cells.v.innerHTML=arr(V/V0);
       cells.e.innerHTML=arr(Ef/E0); cells.u.innerHTML=arr(U/U0);
       if(modeV) flowPh+=(Q-Cv*V0*(1-0.0001))*0; // (kept simple)
@@ -1621,7 +1661,7 @@ registerModule({
       uZone(z,'#000');
       uTitle(z,modeV?'BATTERY CONNECTED — V pinned; new charge flows IN as the slab enters':'BATTERY DISCONNECTED — Q frozen; nothing can flow anywhere',C.blue);
       const cx=z.x+z.w*0.46, cy=z.y+z.h*0.52, halfW=Math.min(190,z.w*0.3), gap=Math.min(120,z.h*0.4), th=9;
-      ctx.save();ctx.fillStyle='#b9cde9';
+      ctx.save();ctx.fillStyle='#d8d4f2';
       rrect(cx-halfW,cy-gap/2-th,2*halfW,th,3);ctx.fill();
       rrect(cx-halfW,cy+gap/2,2*halfW,th,3);ctx.fill();ctx.restore();
       // slab slides in from the left
@@ -1639,7 +1679,7 @@ registerModule({
           const x=lerp(cx-halfW+16,cx+halfW-16,nB===1?0.5:j/(nB-1));
           if(x>sx){ Kit.q(x,cy-gap/2+13,-1,4.6); Kit.q(x,cy+gap/2-13,+1,4.6); }
         }
-        if(fr>0.4) Draw.label(cx+halfW+10,cy-gap/2+18,'bound −σₚ','#4db2ff','600 11px -apple-system,sans-serif');
+        if(fr>0.4) Draw.label(cx+halfW+10,cy-gap/2+18,'bound −σₚ','#38bdf8','600 11px -apple-system,sans-serif');
       }
       // free charges on plates
       const n=Math.round(clamp(qRel,0.2,2.2)*7);
@@ -1657,20 +1697,20 @@ registerModule({
       } else { Kit.sw(bx,cy-24,false); Draw.label(bx,cy+38,'open — Q trapped',C.mut,'600 11px -apple-system,sans-serif','center'); }
     }
     function fieldZone(z,K,fr,Ef){
-      uZone(z,'#05101f');
-      uTitle(z,'INSIDE THE DIELECTRIC — applied E₀, polarisation field Eₚ (opposes), net E = E₀ − Eₚ = E₀/K','#9db6da');
+      uZone(z,'#0a0718');
+      uTitle(z,'INSIDE THE DIELECTRIC — applied E₀, polarisation field Eₚ (opposes), net E = E₀ − Eₚ = E₀/K','#a8a2cc');
       const y=z.y+z.h*0.58, L=Math.min(150,z.w*0.18);
       const x1=z.x+z.w*0.22, x2=z.x+z.w*0.52, x3=z.x+z.w*0.82;
       const Ep=fr*(1-1/Math.max(K,1.0001));
       arrow(x1-L/2,y,x1+L/2,y,C.orange,3);
       Draw.label(x1,y+26,'E₀ (free charges)',C.orange,'700 12px -apple-system,sans-serif','center');
-      if(Ep>0.02){ arrow(x2+L/2*Ep*1.4,y,x2-L/2*Ep*1.4,y,'#4db2ff',3);
-        Draw.label(x2,y+26,'Eₚ (bound charges)','#4db2ff','700 12px -apple-system,sans-serif','center');
-      } else Draw.label(x2,y+4,'no slab → no Eₚ','#37527a','600 12px -apple-system,sans-serif','center');
+      if(Ep>0.02){ arrow(x2+L/2*Ep*1.4,y,x2-L/2*Ep*1.4,y,'#38bdf8',3);
+        Draw.label(x2,y+26,'Eₚ (bound charges)','#38bdf8','700 12px -apple-system,sans-serif','center');
+      } else Draw.label(x2,y+4,'no slab → no Eₚ','#4a4378','600 12px -apple-system,sans-serif','center');
       const net=Math.max(0.06,1-Ep);
       arrow(x3-L/2*net,y,x3+L/2*net,y,C.green,3);
       Draw.label(x3,y+26,'net E = E₀/K_eff',C.green,'700 12px -apple-system,sans-serif','center');
-      Draw.label(z.x+z.w/2,z.y+z.h-12,'A dielectric never cancels E completely (a CONDUCTOR does — that\'s K → ∞)','#9db6da','italic 11.5px Georgia','center');
+      Draw.label(z.x+z.w/2,z.y+z.h-12,'A dielectric never cancels E completely (a CONDUCTOR does — that\'s K → ∞)','#a8a2cc','italic 11.5px Georgia','center');
     }
     return {frame,reset(){inFrac=tgt=ckIn.get()?1:0;}};
   }
@@ -1716,7 +1756,7 @@ registerModule({
       <p><b>Classic Advanced force:</b> slab on battery V: F = ε₀b(K−1)V²/2d, constant — the basis of SHM-of-a-slab problems.</p>`);
     function plates(z,cb){
       const cx=z.x+z.w*0.5, cy=z.y+z.h*0.52, halfW=Math.min(200,z.w*0.3), gap=Math.min(130,z.h*0.46), th=9;
-      ctx.save();ctx.fillStyle='#b9cde9';
+      ctx.save();ctx.fillStyle='#d8d4f2';
       rrect(cx-halfW,cy-gap/2-th,2*halfW,th,3);ctx.fill();
       rrect(cx-halfW,cy+gap/2,2*halfW,th,3);ctx.fill();ctx.restore();
       cb(cx,cy,halfW,gap);
@@ -1760,8 +1800,8 @@ registerModule({
         uTitle(z,'CONDUCTING SLAB — E = 0 inside metal, so the gap effectively shrinks to d − t',C.blue);
         plates(z,(cx,cy,hw,g)=>{
           const sh=(g-10)*tf;
-          ctx.save();ctx.fillStyle='#8d9db5';rrect(cx-hw,cy-sh/2,2*hw,sh,3);ctx.fill();ctx.restore();
-          if(sh>20)Draw.label(cx,cy+5,'metal — E = 0 inside','#0b1f3a','800 12.5px -apple-system,sans-serif','center');
+          ctx.save();ctx.fillStyle='#9a94b5';rrect(cx-hw,cy-sh/2,2*hw,sh,3);ctx.fill();ctx.restore();
+          if(sh>20)Draw.label(cx,cy+5,'metal — E = 0 inside','#0e0a20','800 12.5px -apple-system,sans-serif','center');
           Kit.fieldDown(cx-hw+24,cx+hw-24,cy-g/2+8,cy-sh/2-3,4,0.85);
           Kit.fieldDown(cx-hw+24,cx+hw-24,cy+sh/2+3,cy+g/2-8,4,0.85);
         });
@@ -1787,8 +1827,8 @@ registerModule({
         gfn=u=>(1+(K-1)*u)/10; gx=x; glab='C/C₀ vs insertion x/L (straight line ⇒ dC/dx constant ⇒ F constant)';
       }
       ro.set('c','×'+fmt(cr,2));
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,glab,'#9db6da');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,glab,'#a8a2cc');
       const P=plotFrame(g,'','C/C₀');
       plotCurve(P,gfn,C.violet,2.6);
       Draw.dot(P.mx(gx),P.my(gfn(gx)),6,C.orange,14);
@@ -1848,7 +1888,7 @@ registerModule({
     }
     function capPic(x,y,Cv,v,name){
       const h=66, gap=16;
-      ctx.save();ctx.fillStyle='#b9cde9';
+      ctx.save();ctx.fillStyle='#d8d4f2';
       rrect(x-gap/2-7,y-h/2,7,h,2);ctx.fill();
       rrect(x+gap/2,y-h/2,7,h,2);ctx.fill();ctx.restore();
       const n=Math.round(clamp(Math.abs(v)*Cv/60,0,1)*5);
@@ -1878,14 +1918,14 @@ registerModule({
       if(conn&&p>=0.98)Draw.label(swx,yT+18,'equilibrium: V₁ = V₂ — flow stops',C.green,'700 11.5px -apple-system,sans-serif','center');
     }
     function barZone(z,Ui,Uf,p){
-      uZone(z,'#05101f');
-      uTitle(z,'ENERGY BEFORE vs AFTER — the gap is heat in the connecting wires (any R!) + radiation','#9db6da');
+      uZone(z,'#0a0718');
+      uTitle(z,'ENERGY BEFORE vs AFTER — the gap is heat in the connecting wires (any R!) + radiation','#a8a2cc');
       const U2=lerp(Ui,Uf,p), lost=Ui-U2;
       const x0=z.x+40, w=z.w-260, y0=z.y+44, bh=Math.min(26,(z.h-66)/3-8);
       const rows=[['Initial total energy',Ui,C.blue],['Stored now',U2,C.green],['Lost so far',lost,C.red]];
       const mx=Math.max(Ui,1e-6);
       rows.forEach((rw,i)=>{ const y=y0+i*(bh+13);
-        ctx.save();ctx.fillStyle='rgba(120,160,210,.12)';rrect(x0,y,w,bh,7);ctx.fill();
+        ctx.save();ctx.fillStyle='rgba(150,142,200,.12)';rrect(x0,y,w,bh,7);ctx.fill();
         ctx.fillStyle=rw[2];rrect(x0,y,w*clamp(rw[1]/mx,0,1),bh,7);ctx.fill();ctx.restore();
         Draw.label(x0+w+10,y+bh/2+4,rw[0]+' — '+fmt(rw[1],1)+' µJ',rw[2],'600 11.5px -apple-system,sans-serif');
       });
@@ -1950,7 +1990,7 @@ registerModule({
       Kit.res(xr,yT,true,'R',clamp(i*1.4,0,18));
       Kit.cap(xc,cy,false,'C',C.ink);
       if(ch){ Kit.wire([[x0,yT],[x0,cy-16]]); Kit.wire([[x0,cy+16],[x0,yB]]); Kit.battery(x0,cy,false,false,fmt(V,1)+' V'); }
-      else { Kit.wire([[x0,yT],[x0,yB]]); Draw.label(x0-10,cy,'shorted','#9db6da','600 10.5px -apple-system,sans-serif','right'); }
+      else { Kit.wire([[x0,yT],[x0,yB]]); Draw.label(x0-10,cy,'shorted','#a8a2cc','600 10.5px -apple-system,sans-serif','right'); }
       const n=Math.round(clamp(qf,0,1)*5);
       for(let j=0;j<n+(qf>0.03?1:0);j++){ const off=lerp(-10,10,n===0?0.5:j/Math.max(1,n));
         Kit.q(xc+off,cy-10,+1,4.4); Kit.q(xc+off,cy+10,-1,4.4); }
@@ -1962,18 +2002,18 @@ registerModule({
       Draw.label((x0+x1)/2,z.y+z.h-10,'capacitor is '+fmt(qf*100,1)+'% '+(ch?'charged':'of initial charge'),C.green,'700 12px -apple-system,sans-serif','center');
     }
     function curveZone(z,tag,te,tau,title,fn,col,pct){
-      uZone(z,'#05101f');
-      uTitle(z,title+' — marker at t = τ'+(tag===true||tag==='ch'||tag==='dis'?'':''),'#9db6da');
+      uZone(z,'#0a0718');
+      uTitle(z,title+' — marker at t = τ'+(tag===true||tag==='ch'||tag==='dis'?'':''),'#a8a2cc');
       const P=plotFrame(z,'t','');
       const span=5;                                       // plot 0..5τ
       plotCurve(P,u=>fn(u*span),col,2.6);
       // τ marker
       const xt=P.mx(1/span);
-      ctx.save();ctx.strokeStyle='rgba(245,130,31,.55)';ctx.setLineDash([3,4]);
+      ctx.save();ctx.strokeStyle='rgba(251,191,36,.55)';ctx.setLineDash([3,4]);
       ctx.beginPath();ctx.moveTo(xt,P.py0);ctx.lineTo(xt,P.py1);ctx.stroke();ctx.restore();
       Draw.label(xt+4,P.py1+14,'t = τ  ('+pct+')',C.orange,'600 11px -apple-system,sans-serif');
       // asymptote
-      ctx.save();ctx.strokeStyle='rgba(157,182,218,.3)';ctx.setLineDash([4,6]);
+      ctx.save();ctx.strokeStyle='rgba(168,162,204,.3)';ctx.setLineDash([4,6]);
       ctx.beginPath();ctx.moveTo(P.px0,P.my(fn(1e9)>0.5?1:0));ctx.lineTo(P.px1,P.my(fn(1e9)>0.5?1:0));ctx.stroke();ctx.restore();
       const u=clamp(te/tau/span,0,1);
       Draw.dot(P.mx(u),P.my(fn(u*span)),6,col,14);
@@ -2049,11 +2089,11 @@ registerModule({
       Kit.flow([[x0,yT],[lerp(x0,xm,0.5)-26,yT]],t*60,C.yellow);
       Kit.flow([[lerp(x0,xm,0.5)+26,yT],[x1,yT],[x1,(yT+yB)/2-26]],t*60,C.yellow);
       Kit.flow([[x1,(yT+yB)/2+26],[x1,yB],[x0,yB]],t*60,C.yellow);
-      Draw.label(xm+12,(yT+yB)/2+4,'i = 0 ⇒ V_C = V(R₂)','#9db6da','600 11.5px -apple-system,sans-serif');
+      Draw.label(xm+12,(yT+yB)/2+4,'i = 0 ⇒ V_C = V(R₂)','#a8a2cc','600 11.5px -apple-system,sans-serif');
       ro.set('a','<b>i (main loop)</b> = '+fmt(i,2)+' A'); ro.set('b','<b>V across C</b> = i·R₂ = '+fmt(vc,2)+' V');
       ro.set('c','<b>Q</b> = C·V_C = '+fmt(Cv*vc,1)+' µC (with C = 4 µF)');
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,'V_C vs R₂ — the capacitor inherits the potential divider: V_C = V·R₂/(R₁+R₂)','#9db6da');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'V_C vs R₂ — the capacitor inherits the potential divider: V_C = V·R₂/(R₁+R₂)','#a8a2cc');
       const P=plotFrame(g,'R₂ (Ω)','V_C (V)');
       plotCurve(P,u=>{const rr=lerp(1,10,u);return (V*rr/(R1+rr))/12;},C.green,2.6);
       Draw.dot(P.mx((R2-1)/9),P.my(vc/12),6,C.orange,14);
@@ -2082,26 +2122,26 @@ registerModule({
       const mid=(p,q2)=>[(p[0]+q2[0])/2,(p[1]+q2[1])/2];
       const arms=[[mid(Pl,Pa),C1,'C₁',C1*(V-VA)],[mid(Pa,Pr),C2,'C₂',C2*VA],[mid(Pl,Pb),C3,'C₃',C3*(V-VB)],[mid(Pb,Pr),C4,'C₄',C4*VB]];
       arms.forEach(([p,cv,nm,q])=>{ ctx.save();ctx.translate(p[0],p[1]);
-        ctx.fillStyle='#0b1f3a';rrect(-30,-15,60,30,7);ctx.fill();ctx.restore();
+        ctx.fillStyle='#0e0a20';rrect(-30,-15,60,30,7);ctx.fill();ctx.restore();
         Draw.label(p[0],p[1]-2,nm+'='+fmt(cv,1),C.ink,'700 11.5px -apple-system,sans-serif','center');
         Draw.label(p[0],p[1]+12,fmt(Math.abs(q),1)+' µC',C.orange,'600 10.5px -apple-system,sans-serif','center');
       });
-      Kit.cap(cx,cy,false,'',bal?'#39b54a':C.ink);
+      Kit.cap(cx,cy,false,'',bal?'#34d399':C.ink);
       Draw.label(cx+20,cy+4,'C₅ — q = '+fmt(q5,2)+' µC',bal?C.green:C.orange,'700 12px -apple-system,sans-serif');
       Kit.node(...Pa);Kit.node(...Pb);Kit.node(...Pl);Kit.node(...Pr);
-      Draw.label(Pa[0],Pa[1]-10,'A: '+fmt(VA,2)+' V','#9db6da','600 11px -apple-system,sans-serif','center');
-      Draw.label(Pb[0],Pb[1]+20,'B: '+fmt(VB,2)+' V','#9db6da','600 11px -apple-system,sans-serif','center');
+      Draw.label(Pa[0],Pa[1]-10,'A: '+fmt(VA,2)+' V','#a8a2cc','600 11px -apple-system,sans-serif','center');
+      Draw.label(Pb[0],Pb[1]+20,'B: '+fmt(VB,2)+' V','#a8a2cc','600 11px -apple-system,sans-serif','center');
       ro.set('a','<b>V_A − V_B</b> = '+fmt(VA-VB,2)+' V');
       ro.set('b','<b>q on bridge C₅</b> = '+fmt(q5,2)+' µC');
-      ro.set('c',bal?'<b style="color:#39b54a">balanced — C₅ removable</b>':'<b>C₁/C₂</b> = '+fmt(C1/C2,2)+' vs <b>C₃/C₄</b> = '+fmt(C3/C4,2));
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,'Bridge charge vs C₁ (others fixed) — it crosses ZERO exactly where C₁/C₂ = C₃/C₄','#9db6da');
+      ro.set('c',bal?'<b style="color:#34d399">balanced — C₅ removable</b>':'<b>C₁/C₂</b> = '+fmt(C1/C2,2)+' vs <b>C₃/C₄</b> = '+fmt(C3/C4,2));
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'Bridge charge vs C₁ (others fixed) — it crosses ZERO exactly where C₁/C₂ = C₃/C₄','#a8a2cc');
       const P=plotFrame(g,'C₁ (µF)','q₅ (µC)');
       const qOf=(c1)=>{ const A1=c1+C2+C5,B2v=C3+C4+C5,dd=A1*B2v-C5*C5;
         const va=(c1*V*B2v+C5*C3*V)/dd, vb=(A1*C3*V+C5*c1*V)/dd; return C5*(va-vb); };
       const qm=Math.max(...[1,10].map(c=>Math.abs(qOf(c))),0.5);
       plotCurve(P,u=>0.5+qOf(lerp(1,10,u))/(2.2*qm),C.violet,2.6);
-      ctx.save();ctx.strokeStyle='rgba(157,182,218,.35)';ctx.setLineDash([4,5]);
+      ctx.save();ctx.strokeStyle='rgba(168,162,204,.35)';ctx.setLineDash([4,5]);
       ctx.beginPath();ctx.moveTo(P.px0,P.my(0.5));ctx.lineTo(P.px1,P.my(0.5));ctx.stroke();ctx.restore();
       Draw.label(P.px1-4,P.my(0.5)-6,'q₅ = 0',C.mut,'600 10.5px -apple-system,sans-serif','right');
       Draw.dot(P.mx((C1-1)/9),P.my(0.5+qOf(C1)/(2.2*qm)),6,C.orange,14);
@@ -2127,13 +2167,13 @@ registerModule({
       ro.set('a','<b>steady current</b> = 0 (caps block DC)');
       ro.set('b','<b>V across R</b> = i·R = 0 ⇒ V across C₂ = 0');
       ro.set('c','<b>q on C₁</b> = '+fmt(3*V,1)+' µC; <b>q on C₂</b> = 0 — the resistor "shorted" C₂!');
-      const g=r[1]; uZone(g,'#05101f');
-      uTitle(g,'WITHOUT the resistor, series caps would divide V by 1/C — the resistor flips the answer completely','#9db6da');
+      const g=r[1]; uZone(g,'#0a0718');
+      uTitle(g,'WITHOUT the resistor, series caps would divide V by 1/C — the resistor flips the answer completely','#a8a2cc');
       const v1=V*C2/(C1+C2), v2=V*C1/(C1+C2);
       const x0b=g.x+50, w=g.w-300, y0=g.y+42, bh=Math.min(24,(g.h-64)/4-6);
-      [['V₁ with R across C₂',V,C.green],['V₂ with R',0.001,C.red],['V₁ if R removed',v1,'#3aa0ee'],['V₂ if R removed',v2,'#b388ff']].forEach((rw,i)=>{
+      [['V₁ with R across C₂',V,C.green],['V₂ with R',0.001,C.red],['V₁ if R removed',v1,'#22d3ee'],['V₂ if R removed',v2,'#f472b6']].forEach((rw,i)=>{
         const y=y0+i*(bh+9);
-        ctx.save();ctx.fillStyle='rgba(120,160,210,.12)';rrect(x0b,y,w,bh,6);ctx.fill();
+        ctx.save();ctx.fillStyle='rgba(150,142,200,.12)';rrect(x0b,y,w,bh,6);ctx.fill();
         ctx.fillStyle=rw[2];rrect(x0b,y,w*clamp(rw[1]/12,0,1),bh,6);ctx.fill();ctx.restore();
         Draw.label(x0b+w+10,y+bh/2+4,rw[0]+' — '+fmt(rw[1]<0.01?0:rw[1],2)+' V',rw[2],'600 11px -apple-system,sans-serif');
       });
@@ -2283,9 +2323,9 @@ registerModule({
       const z={x:10,y:6,w:CW-20,h:CH-12};
       uZone(z,'#000');
       const frac=attempted?correct/attempted:0;
-      uTitle(z,'YOUR SCORE CAPACITOR — accuracy charges it up','#9db6da');
+      uTitle(z,'YOUR SCORE CAPACITOR — accuracy charges it up','#a8a2cc');
       const cx=z.x+z.w*0.5, cy=z.y+z.h*0.58, hw=Math.min(180,z.w*0.26), gap=Math.min(54,z.h*0.4);
-      ctx.save();ctx.fillStyle='#b9cde9';
+      ctx.save();ctx.fillStyle='#d8d4f2';
       rrect(cx-hw,cy-gap/2-8,2*hw,8,3);ctx.fill(); rrect(cx-hw,cy+gap/2,2*hw,8,3);ctx.fill();ctx.restore();
       const n=Math.round(frac*10);
       for(let j=0;j<n;j++){ const x=lerp(cx-hw+14,cx+hw-14,n===1?0.5:j/(n-1));
