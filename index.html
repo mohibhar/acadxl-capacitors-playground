@@ -47,9 +47,11 @@ a{color:inherit}
 body::before{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:
-    radial-gradient(720px 460px at 14% 16%, rgba(27,117,188,.14), transparent 62%),
-    radial-gradient(620px 440px at 86% 74%, rgba(57,181,74,.07), transparent 62%),
-    radial-gradient(520px 360px at 72% 8%, rgba(245,130,31,.05), transparent 60%);
+    radial-gradient(rgba(157,182,218,.05) 1.1px, transparent 1.7px),
+    radial-gradient(720px 460px at 14% 16%, rgba(27,117,188,.15), transparent 62%),
+    radial-gradient(620px 440px at 86% 74%, rgba(245,130,31,.07), transparent 62%),
+    radial-gradient(520px 360px at 72% 8%, rgba(57,181,74,.05), transparent 60%);
+  background-size:32px 32px,auto,auto,auto;
 }
 .wrap{max-width:1240px;margin:0 auto;padding:0 18px}
 
@@ -107,22 +109,19 @@ header.topbar::after{
 .meta .chip:nth-child(3)::before{background:var(--axl-orange);box-shadow:0 0 6px var(--axl-orange)}
 .meta .chip:nth-child(4)::before{background:var(--axl-violet);box-shadow:0 0 6px var(--axl-violet)}
 
-/* travelling waves flowing under the hero — the chapter, alive */
-.herowave{
-  position:absolute;left:-18px;right:-18px;bottom:-4px;height:104px;
-  overflow:hidden;pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
+/* a live charging circuit under the hero — the chapter, alive */
+.herocap{
+  position:absolute;left:-18px;right:-18px;bottom:-6px;height:116px;
+  overflow:hidden;pointer-events:none;opacity:.85;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
 }
-.herowave svg{position:absolute;left:0;top:0;width:200%;height:100%;display:block}
-.herowave path{fill:none;stroke-width:2.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.hw1 path{stroke:var(--axl-blue-glow);opacity:.55}
-.hw2 path{stroke:var(--axl-green);opacity:.38}
-.hw3 path{stroke:var(--axl-orange);opacity:.20}
-.hw1{animation:waveslide 13s linear infinite}
-.hw2{animation:waveslide 21s linear infinite reverse}
-.hw3{animation:waveslide 34s linear infinite}
-@keyframes waveslide{to{transform:translateX(-50%)}}
+.herocap svg{width:100%;height:100%;display:block}
+.hcpl{filter:drop-shadow(0 0 7px rgba(245,130,31,.8))}
+.hcpr{filter:drop-shadow(0 0 7px rgba(77,178,255,.8))}
+.hcfield{animation:hcpulse 2.8s ease-in-out infinite}
+.hcq{animation:hcpulse 2.8s ease-in-out infinite}
+@keyframes hcpulse{0%,100%{opacity:.3}50%{opacity:1}}
 
 /* ============ Module grid ============ */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px;padding:26px 0 60px}
@@ -191,7 +190,7 @@ header.topbar::after{
 .stagehead{margin-bottom:16px}
 .stagehead h2{margin:0 0 6px;font-size:clamp(21px,3vw,28px);font-weight:800;position:relative;padding-left:15px}
 .stagehead h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.12em;width:4px;border-radius:3px;
-  background:linear-gradient(180deg,var(--axl-blue-glow),var(--axl-green));box-shadow:0 0 10px rgba(58,160,238,.45)}
+  background:linear-gradient(180deg,var(--axl-orange),var(--axl-blue-glow));box-shadow:0 0 10px rgba(245,130,31,.45)}
 .stagehead .sub{color:var(--axl-mut);font-size:14px;line-height:1.5;max-width:820px}
 .stagehead .tags{margin-top:9px;display:flex;gap:7px;flex-wrap:wrap}
 
@@ -207,7 +206,7 @@ header.topbar::after{
 /* faint accent hairline along the top of the stage */
 .canvaswrap::before{
   content:"";position:absolute;left:0;right:0;top:0;height:2px;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,transparent 4%,var(--axl-blue-glow) 35%,var(--axl-green) 65%,transparent 96%);
+  background:linear-gradient(90deg,transparent 4%,var(--axl-orange) 35%,var(--axl-blue-glow) 65%,transparent 96%);
   opacity:.4;
 }
 canvas{display:block;width:100%;touch-action:none}
@@ -315,9 +314,15 @@ footer::before{content:"";position:absolute;top:-1px;left:50%;transform:translat
 footer b{color:var(--axl-mut)}
 
 @media (prefers-reduced-motion:reduce){
-  .herowave svg,.hero h1 .hl,.card{animation:none!important}
+  .herocap *,.hcfield,.hcq,.hero h1 .hl,.card{animation:none!important}
 }
 
+.formula{font-size:17px}
+.formula+.formula{margin-top:9px}
+.formula.sm{font-size:13.5px;padding:9px 8px;line-height:1.9}
+.formula .frac{font-size:.92em}
+.qfig{background:#040b16;border:1px solid #24405f;border-radius:11px;padding:10px 8px;margin:2px 0 12px}
+.qfig svg{width:100%;max-height:200px;display:block}
 .hidden{display:none!important}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-thumb{background:var(--axl-line);border-radius:6px}
@@ -344,10 +349,42 @@ footer b{color:var(--axl-mut)}
 
 <main class="wrap" id="home">
   <section class="hero">
-    <div class="herowave" aria-hidden="true">
-      <svg class="hw1" viewBox="0 0 2400 140" preserveAspectRatio="none"><path d="M0 70 Q75 16 150 70 T300 70 T450 70 T600 70 T750 70 T900 70 T1050 70 T1200 70 T1350 70 T1500 70 T1650 70 T1800 70 T1950 70 T2100 70 T2250 70 T2400 70"/></svg>
-      <svg class="hw2" viewBox="0 0 2400 140" preserveAspectRatio="none"><path d="M0 70 Q75 116 150 70 T300 70 T450 70 T600 70 T750 70 T900 70 T1050 70 T1200 70 T1350 70 T1500 70 T1650 70 T1800 70 T1950 70 T2100 70 T2250 70 T2400 70"/></svg>
-      <svg class="hw3" viewBox="0 0 2400 140" preserveAspectRatio="none"><path d="M0 70 Q150 30 300 70 T600 70 T900 70 T1200 70 T1500 70 T1800 70 T2100 70 T2400 70"/></svg>
+    <div class="herocap" aria-hidden="true">
+      <svg viewBox="0 0 900 132" preserveAspectRatio="xMidYMax meet">
+        <defs>
+          <linearGradient id="hcf" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#f5821f" stop-opacity=".8"/>
+            <stop offset="1" stop-color="#4db2ff" stop-opacity=".8"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="rgba(157,182,218,.5)" stroke-width="2.5" stroke-linecap="round">
+          <path d="M433 38 H70 V108 H424"/>
+          <path d="M467 38 H830 V108 H476"/>
+        </g>
+        <g stroke="#dce9ff" stroke-linecap="round">
+          <line x1="424" y1="92" x2="424" y2="124" stroke-width="3"/>
+          <line x1="476" y1="98" x2="476" y2="118" stroke-width="6.5"/>
+        </g>
+        <text x="408" y="90" fill="#f5821f" stroke="none" font-size="13" font-weight="800">+</text>
+        <text x="486" y="90" fill="#4db2ff" stroke="none" font-size="14" font-weight="800">−</text>
+        <line class="hcpl" x1="433" y1="8" x2="433" y2="68" stroke="#f5821f" stroke-width="5.5" stroke-linecap="round"/>
+        <line class="hcpr" x1="467" y1="8" x2="467" y2="68" stroke="#4db2ff" stroke-width="5.5" stroke-linecap="round"/>
+        <text class="hcq" x="418" y="14" fill="#f5821f" stroke="none" font-size="11" font-weight="800">+Q</text>
+        <text class="hcq" x="472" y="14" fill="#4db2ff" stroke="none" font-size="11" font-weight="800">−Q</text>
+        <g class="hcfield" stroke="url(#hcf)" stroke-width="2" fill="#4db2ff">
+          <line x1="439" y1="22" x2="457" y2="22"/><path d="M461 22 l-7 -4 v8 Z" stroke="none"/>
+          <line x1="439" y1="40" x2="457" y2="40"/><path d="M461 40 l-7 -4 v8 Z" stroke="none"/>
+          <line x1="439" y1="58" x2="457" y2="58"/><path d="M461 58 l-7 -4 v8 Z" stroke="none"/>
+        </g>
+        <g fill="#ffd23d">
+          <circle r="3.4"><animateMotion dur="7s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
+          <circle r="3.4"><animateMotion dur="7s" begin="-2.3s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
+          <circle r="3.4"><animateMotion dur="7s" begin="-4.6s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
+          <circle r="3.4"><animateMotion dur="7s" repeatCount="indefinite" path="M476 108 H830 V38 H467"/></circle>
+          <circle r="3.4"><animateMotion dur="7s" begin="-2.3s" repeatCount="indefinite" path="M476 108 H830 V38 H467"/></circle>
+          <circle r="3.4"><animateMotion dur="7s" begin="-4.6s" repeatCount="indefinite" path="M476 108 H830 V38 H467"/></circle>
+        </g>
+      </svg>
     </div>
     <h1>Capacitors — <span class="hl">Interactive Playground</span></h1>
     <p>Every capacitor concept of NCERT <i>Electrostatic Potential &amp; Capacitance</i>, turned into something you can <b>play with</b>. Pull plates apart, slide dielectrics in, watch charge flow and energy move — and see 20 years of JEE questions come alive.</p>
@@ -874,6 +911,149 @@ const ICC={
   quiz:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.7 2.2c-.8.45-1.2.9-1.2 1.8"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>'
 };
 
+/* ---- pretty-math helpers (uses the .formula/.frac/.sqrt CSS) ---- */
+function FX(h,sm){const d=E('div',{class:'formula'+(sm?' sm':'')});d.innerHTML=h;return d;}
+const FR=(a,b)=>'<span class="frac"><span class="top">'+a+'</span><span class="bot">'+b+'</span></span>';
+const SR=(x)=>'<span class="rad">√</span><span class="sqrt">'+x+'</span>';
+const MI=(x)=>'<span class="mvar">'+x+'</span>';
+const EM=(x)=>'<span class="em">'+x+'</span>';
+const EM2=(x)=>'<span class="em2">'+x+'</span>';
+
+/* ---- SVG figure kit for the PYQ Arena ---- */
+const FG={
+  svg:(w,h,inner)=>'<svg viewBox="0 0 '+w+' '+h+'"><g fill="none" stroke="#a8c2e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+inner+'</g></svg>',
+  t:(x,y,s,c,sz,a)=>'<text x="'+x+'" y="'+y+'" fill="'+(c||'#eaf2ff')+'" stroke="none" font-size="'+(sz||12)+'" font-weight="600" text-anchor="'+(a||'middle')+'" font-family="-apple-system,Segoe UI,sans-serif">'+s+'</text>',
+  w:(pts)=>'<polyline points="'+pts+'"/>',
+  cap:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><line x1="-5" y1="-13" x2="-5" y2="13" stroke-width="3"/><line x1="5" y1="-13" x2="5" y2="13" stroke-width="3"/></g>',
+  bat:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><line x1="-5" y1="-14" x2="-5" y2="14"/><line x1="5" y1="-8" x2="5" y2="8" stroke-width="4.6"/></g>',
+  res:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><polyline points="-22,0 -17,-7 -9,7 -1,-7 7,7 15,-7 20,0"/></g>',
+  sw:(x,y,r)=>'<g transform="translate('+x+','+y+') rotate('+(r||0)+')"><circle cx="-13" cy="0" r="2.6" fill="#a8c2e8" stroke="none"/><circle cx="13" cy="0" r="2.6" fill="#a8c2e8" stroke="none"/><line x1="-13" y1="0" x2="10" y2="-13"/></g>',
+  dot:(x,y,c)=>'<circle cx="'+x+'" cy="'+y+'" r="3.4" fill="'+(c||'#ffd23d')+'" stroke="none"/>',
+  box:(x,y,w,h,c,o)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+c+'" fill-opacity="'+(o==null?0.28:o)+'" stroke="'+c+'" stroke-opacity=".75"/>',
+  gnd:(x,y)=>'<g transform="translate('+x+','+y+')"><line x1="0" y1="0" x2="0" y2="8"/><line x1="-11" y1="8" x2="11" y2="8"/><line x1="-7" y1="13" x2="7" y2="13"/><line x1="-3" y1="18" x2="3" y2="18"/></g>',
+  arr:(x1,y1,x2,y2,c)=>{const a=Math.atan2(y2-y1,x2-x1),h=8;
+    return '<g stroke="'+c+'" fill="'+c+'"><line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/><path stroke="none" d="M'+x2+' '+y2+'L'+(x2-h*Math.cos(a-0.42))+' '+(y2-h*Math.sin(a-0.42))+'L'+(x2-h*Math.cos(a+0.42))+' '+(y2-h*Math.sin(a+0.42))+'Z"/></g>';}
+};
+const ORN='#f5821f',BLU='#4db2ff',GRN='#39b54a',VIO='#b388ff',MET='#8d9db5';
+const QFIG={
+q3:FG.svg(300,150,
+  '<circle cx="150" cy="78" r="56"/><circle cx="150" cy="78" r="36" fill="#22456b"/>'
+  +FG.arr(150,78,176,52,'#a8c2e8')+FG.t(158,62,'a')
+  +FG.t(150,14,'outer shell b',void 0,11)+FG.w('150,22 150,40')
+  +FG.t(248,78,'b−a = 1 mm','#ffd23d',11,'start')+FG.arr(244,78,210,78,'#ffd23d')),
+q4:FG.svg(330,150,
+  '<rect x="35" y="40" width="180" height="70" rx="3"/><rect x="35" y="60" width="180" height="30" fill="#22456b"/>'
+  +FG.t(125,28,'L = 15 cm')+FG.w('35,32 35,38')+FG.w('215,32 215,38')+FG.w('41,32 209,32')
+  +'<circle cx="282" cy="75" r="38"/><circle cx="282" cy="75" r="27" fill="#22456b"/>'
+  +FG.t(282,79,'a=1.4','#eaf2ff',10)+FG.t(282,128,'b = 1.5 cm',void 0,11)
+  +FG.t(125,132,'side view',void 0,10.5)),
+q5:FG.svg(330,160,
+  [25,55,85,115,145].map((y,i)=>'<line x1="105" y1="'+y+'" x2="225" y2="'+y+'" stroke-width="4.5" stroke="'+(i%2?BLU:ORN)+'"/>').join('')
+  +FG.w('105,25 80,25 80,145 105,145')+FG.w('105,85 80,85')
+  +FG.w('225,55 250,55 250,115 225,115')
+  +FG.w('80,85 48,85')+FG.w('250,85 282,85')
+  +FG.dot(48,85,ORN)+FG.dot(282,85,BLU)
+  +FG.t(38,89,'A',ORN,13,'end')+FG.t(292,89,'B',BLU,13,'start')
+  +FG.t(165,14,'n plates, alternate plates joined',void 0,11)
+  +FG.t(165,158,'each adjacent gap = C',void 0,11)),
+q7:FG.svg(340,180,
+  FG.w('40,90 170,30')+FG.w('170,30 300,90')+FG.w('40,90 170,150')+FG.w('170,150 300,90')
+  +FG.w('170,30 170,150')
+  +FG.cap(105,60,-25)+FG.cap(235,60,25)+FG.cap(105,120,25)+FG.cap(235,120,-25)+FG.cap(170,90,90)
+  +FG.w('40,90 14,90')+FG.w('300,90 326,90')
+  +FG.dot(40,90,'#a8c2e8')+FG.dot(300,90,'#a8c2e8')
+  +FG.t(28,82,'A')+FG.t(312,82,'B')+FG.t(170,20,'P')+FG.t(170,168,'Q')
+  +FG.t(80,42,'4µF','#9db6da',10.5)+FG.t(262,42,'4µF','#9db6da',10.5)
+  +FG.t(80,140,'4µF','#9db6da',10.5)+FG.t(262,140,'4µF','#9db6da',10.5)
+  +FG.t(192,92,'4µF','#9db6da',10.5,'start')),
+q10:FG.svg(330,160,
+  FG.w('60,40 125,40')+FG.dot(168,40,'#a8c2e8')+FG.dot(125,40,'#a8c2e8')+FG.dot(212,40,'#a8c2e8')
+  +'<line x1="168" y1="40" x2="130" y2="24" stroke-dasharray="3 4"/><line x1="168" y1="40" x2="208" y2="26"/>'
+  +FG.w('212,40 280,40')
+  +FG.w('60,40 60,55')+FG.bat(60,75,90)+FG.w('60,95 60,130 280,130')
+  +FG.w('168,40 168,58')+FG.cap(168,75,90)+FG.w('168,92 168,130')
+  +FG.w('280,40 280,58')+FG.cap(280,75,90)+FG.w('280,92 280,130')
+  +FG.t(118,16,'1','#9db6da',11)+FG.t(214,16,'2',ORN,11)
+  +FG.t(40,80,'V','#9db6da',12)+FG.t(146,80,'2µF',ORN,11,'end')+FG.t(300,80,'8µF',BLU,11,'start')
+  +FG.t(165,152,'switch: 1 = charge, 2 = share',void 0,10.5)),
+q16:FG.svg(320,150,
+  '<line x1="58" y1="32" x2="262" y2="32" stroke-width="5"/><line x1="58" y1="118" x2="262" y2="118" stroke-width="5"/>'
+  +FG.box(60,36,66,78,ORN)+FG.box(127,36,66,78,GRN)+FG.box(194,36,66,78,VIO)
+  +FG.t(93,80,'K₁=10','#ffd9b3',12)+FG.t(160,80,'K₂=12','#c9f3d0',12)+FG.t(227,80,'K₃=14','#e2d4ff',12)
+  +FG.t(160,16,'full gap d, areas A/3 each — SIDE BY SIDE',void 0,10.5)
+  +FG.t(160,142,'⇒ parallel combination',GRN,11)),
+q17:FG.svg(320,160,
+  '<line x1="68" y1="28" x2="252" y2="28" stroke-width="5"/><line x1="68" y1="132" x2="252" y2="132" stroke-width="5"/>'
+  +[0,1,2,3,4,5].map(i=>FG.box(70,31.5+i*16.5,180,15,BLU,0.12+i*0.09)).join('')
+  +FG.t(258,40,'K(1+1/N)',BLU,10.5,'start')+FG.t(258,128,'→ 2K',BLU,10.5,'start')
+  +FG.w('56,31 50,31 50,46 56,46')+FG.t(44,42,'δ=d/N','#ffd23d',10,'end')
+  +FG.t(160,14,'N thin layers STACKED along the field',void 0,10.5)
+  +FG.t(160,152,'⇒ series — integrate 1/K',ORN,11)),
+q18:FG.svg(320,160,
+  '<line x1="58" y1="32" x2="262" y2="32" stroke-width="5"/><line x1="58" y1="128" x2="262" y2="128" stroke-width="5"/>'
+  +FG.box(60,36,99,88,ORN)+FG.box(161,36,99,43,ORN)+FG.box(161,81,99,43,BLU)
+  +FG.t(109,84,'ε₁ = 2','#ffd9b3',12)+FG.t(210,62,'ε₁ = 2','#ffd9b3',11)+FG.t(210,107,'ε₂ = 4','#bfe6ff',11)
+  +FG.t(109,150,'S/2 · full d',void 0,10)+FG.t(210,150,'S/2 · two d/2 layers',void 0,10)),
+q19:FG.svg(300,140,
+  '<line x1="56" y1="28" x2="244" y2="28" stroke-width="5"/><line x1="56" y1="112" x2="244" y2="112" stroke-width="5"/>'
+  +FG.box(56,52,188,36,MET,0.45)+FG.t(150,74,'metal sheet  t = d/2','#dfe8f5',11.5)
+  +FG.w('264,28 264,112')+FG.w('259,28 269,28')+FG.w('259,112 269,112')+FG.t(280,74,'d','#ffd23d',12,'middle')
+  +FG.t(150,132,'E = 0 inside the conductor',ORN,11)),
+q21:FG.svg(340,160,
+  '<line x1="60" y1="42" x2="270" y2="42" stroke-width="5"/><line x1="60" y1="104" x2="270" y2="104" stroke-width="5"/>'
+  +FG.box(60,46,92,54,ORN,0.4)+FG.t(106,78,'K','#ffd9b3',14)
+  +FG.arr(168,73,206,73,ORN)+FG.t(188,62,'F',ORN,13)
+  +FG.w('60,118 152,118')+FG.w('60,113 60,123')+FG.w('152,113 152,123')+FG.t(106,134,'x','#ffd23d',12)
+  +FG.w('270,42 300,42 300,56')+FG.bat(300,72,90)+FG.w('300,88 300,104 270,104')
+  +FG.t(322,76,'V','#9db6da',12)+FG.t(165,24,'plate length L',void 0,10.5)),
+q22:FG.svg(320,140,
+  FG.w('55,30 105,30')+FG.sw(125,30)+FG.w('145,30 178,30')+FG.res(200,30)+FG.w('222,30 275,30 275,100 180,100')
+  +FG.cap(165,100)+FG.w('150,100 55,100 55,90')
+  +FG.bat(55,72,90)+FG.w('55,54 55,30')
+  +FG.t(33,76,'12 V','#9db6da',11)+FG.t(200,14,'2.5 MΩ','#9db6da',11)+FG.t(165,124,'4 µF','#9db6da',11)+FG.t(125,14,'S','#9db6da',11)),
+q23:FG.svg(340,160,
+  FG.dot(28,80,ORN)+FG.t(28,66,'A',ORN,12)+FG.w('28,80 62,80')
+  +FG.w('62,45 62,115')+FG.w('62,45 90,45')+FG.res(112,45)+FG.w('134,45 162,45')
+  +FG.w('62,115 90,115')+FG.res(112,115)+FG.w('134,115 162,115')+FG.w('162,45 162,115')
+  +FG.w('162,80 196,80')
+  +FG.w('196,45 196,115')+FG.w('196,45 234,45')+FG.cap(246,45)+FG.w('258,45 296,45')
+  +FG.w('196,115 234,115')+FG.cap(246,115)+FG.w('258,115 296,115')+FG.w('296,45 296,115')
+  +FG.w('296,80 322,80')+FG.dot(322,80,BLU)+FG.t(322,66,'B',BLU,12)
+  +FG.t(112,30,'2 MΩ','#9db6da',10.5)+FG.t(112,136,'2 MΩ','#9db6da',10.5)
+  +FG.t(246,30,'2 µF','#9db6da',10.5)+FG.t(246,136,'2 µF','#9db6da',10.5)
+  +FG.t(170,152,'10 V applied across A–B at t = 0',void 0,10.5)),
+q25:FG.svg(330,160,
+  '<line x1="56" y1="30" x2="234" y2="30" stroke-width="5"/><line x1="56" y1="120" x2="234" y2="120" stroke-width="5"/>'
+  +FG.box(56,86,178,34,BLU,0.35)+FG.t(145,108,'liquid K = 2','#bfe6ff',11)
+  +FG.t(145,62,'air',void 0,11)
+  +FG.arr(214,72,214,92,'#ffd23d')+FG.t(224,80,'v','#ffd23d',12,'start')
+  +FG.w('234,30 282,30 282,52')+FG.res(282,72,90)+FG.w('282,92 282,120 234,120')
+  +FG.t(304,76,'R','#9db6da',12)
+  +FG.t(145,146,'liquid drains: thickness d/3 − vt',void 0,10.5)),
+q26:FG.svg(340,180,
+  FG.w('48,40 96,40')+FG.cap(112,40)+FG.w('128,40 168,40')+FG.dot(180,40,ORN)+FG.w('192,40 226,40')+FG.cap(242,40)+FG.w('258,40 300,40 300,150')
+  +FG.w('48,40 48,62')+FG.bat(48,82,90)+FG.w('48,102 48,150 96,150')
+  +FG.res(118,150)+FG.w('140,150 168,150')+FG.dot(180,150,GRN)+FG.w('192,150 222,150')+FG.res(244,150)+FG.w('266,150 300,150')
+  +FG.w('180,52 180,72')+FG.sw(180,92,90)+FG.w('180,112 180,138')
+  +FG.t(112,24,'3 µF','#9db6da',11)+FG.t(242,24,'6 µF','#9db6da',11)
+  +FG.t(118,170,'3 Ω','#9db6da',11)+FG.t(244,170,'6 Ω','#9db6da',11)
+  +FG.t(196,44,'X',ORN,12,'start')+FG.t(196,154,'Y',GRN,12,'start')
+  +FG.t(160,96,'S','#9db6da',12,'end')+FG.t(26,86,'9 V','#9db6da',11)),
+q27:FG.svg(330,170,
+  FG.w('52,24 290,24')+FG.w('52,146 290,146')
+  +FG.w('52,24 52,40')+FG.bat(52,58,90)+FG.w('52,76 52,88')+FG.res(52,108,90)+FG.w('52,128 52,146')
+  +FG.w('170,24 170,58')+FG.res(170,78,90)+FG.w('170,98 170,146')
+  +FG.w('250,24 250,38')+FG.res(250,56,90)+FG.w('250,76 250,96')+FG.cap(250,112,90)+FG.w('250,128 250,146')
+  +FG.t(30,62,'E','#9db6da',12)+FG.t(30,112,'r','#9db6da',12)
+  +FG.t(190,82,'r₂','#9db6da',12,'start')+FG.t(270,60,'r₁','#9db6da',12,'start')+FG.t(270,116,'C','#9db6da',12,'start')),
+q28:FG.svg(280,180,
+  FG.t(140,16,'+80 µC',ORN,12)+FG.w('140,22 140,36')+FG.cap(140,52,90)+FG.w('140,68 140,84')+FG.dot(140,84,'#a8c2e8')
+  +FG.w('140,84 90,84 90,96')+FG.cap(90,112,90)+FG.w('90,128 90,144')
+  +FG.w('140,84 190,84 190,96')+FG.cap(190,112,90)+FG.w('190,128 190,144')
+  +FG.w('90,144 190,144')+FG.gnd(140,146)
+  +FG.t(118,56,'4 µF','#9db6da',11,'end')+FG.t(68,116,'2 µF','#9db6da',11,'end')+FG.t(212,116,'3 µF','#9db6da',11,'start')),
+};
+
 /* ============================================================
    MODULE 1 — What is a capacitor?  Q = CV
    ============================================================ */
@@ -893,6 +1073,7 @@ registerModule({
     const ckField=host.Check({label:'Show electric field between the plates',value:true});
     host.addPanel('Controls',[sV.el,sC.el,ckFlow.el,ckField.el,
       E('p',{class:'tip',html:'<b>Try this:</b> jump V from 12 V to 3 V and watch the current <b>reverse</b> while the capacitor dumps charge back. When Q = CV exactly, the current is <b>zero</b> — a capacitor passes no steady DC.'})]);
+    host.addPanel('Key formulas',[FX(EM('C')+' = '+FR(MI('Q'),MI('V'))+' &nbsp;&nbsp;⇒&nbsp;&nbsp; '+MI('Q')+' = '+EM('C')+'·'+MI('V')),FX('1 farad = 1 '+FR('coulomb','volt')+' &nbsp;(enormous — real life: pF → mF)',1)]);
     const ro=host.Readouts([
       {key:'q',label:'Charge Q on plates',unit:'µC',hl:true},
       {key:'tgt',label:'Target Q = CV',unit:'µC'},
@@ -982,6 +1163,7 @@ registerModule({
     const ckFr=host.Check({label:'Show fringing field at the edges (real capacitors)',value:true});
     host.addPanel('Controls',[sA.el,sD.el,sV.el,gSeg.el,ckFr.el,
       E('p',{class:'tip',html:'Battery stays connected, so <b>V is fixed</b>. Pull the plates apart: C drops, so <b>Q = CV drops</b> — charge actually flows <i>back into the battery</i>. E = V/d drops too.'})]);
+    host.addPanel('Key formulas',[FX(EM('C')+' = '+FR('ε₀'+MI('A'),MI('d'))),FX(EM2('E')+' = '+FR('σ','ε₀')+' = '+FR(MI('V'),MI('d'))+' &nbsp;&nbsp; (uniform inside)',1)]);
     const ro=host.Readouts([
       {key:'c',label:'Capacitance C',unit:'pF',hl:true},
       {key:'q',label:'Charge Q = CV',unit:'nC'},
@@ -1087,6 +1269,7 @@ registerModule({
       sR.el.style.display=mode==='iso'?'':'none';
     }
     syncCtl();
+    host.addPanel('Key formulas',[FX('sphere:&nbsp; '+EM('C')+' = '+FR('4πε₀'+MI('ab'),MI('b')+'−'+MI('a'))),FX('cylinder:&nbsp; '+EM('C')+' = '+FR('2πε₀'+MI('L'),'ln('+MI('b')+'/'+MI('a')+')')+' &nbsp;·&nbsp; isolated:&nbsp; '+EM('C')+' = 4πε₀'+MI('R'),1)]);
     const ro=host.Readouts([
       {key:'c',label:'Capacitance',hl:true},
       {key:'note',label:'Check this'},
@@ -1226,6 +1409,7 @@ registerModule({
     const sV=host.Slider({label:'Battery V',min:2,max:12,step:0.5,value:12,unit:'V'});
     host.addPanel('Controls',[seg.el,s1.el,s2.el,s3.el,sV.el,
       E('p',{class:'tip',html:'<b>Series surprise:</b> the SMALLEST capacitor hogs the BIGGEST voltage (V = Q/C, same Q). That single fact settles half the Main questions on this topic.'})]);
+    host.addPanel('Key formulas',[FX('series:&nbsp; '+FR('1',EM('C')+'<sub>eq</sub>')+' = '+FR('1','C₁')+' + '+FR('1','C₂')+' + '+FR('1','C₃')),FX('parallel:&nbsp; '+EM('C')+'<sub>eq</sub> = C₁ + C₂ + C₃',1)]);
     const ro=host.Readouts([
       {key:'ceq',label:'Equivalent C',unit:'µF',hl:true},
       {key:'q',label:'Charge from battery',unit:'µC'},
@@ -1326,6 +1510,7 @@ registerModule({
     const sV=host.Slider({label:'Final battery voltage V',min:2,max:12,step:0.5,value:10,unit:'V'});
     host.addPanel('Controls',[sC.el,sV.el,
       E('p',{class:'tip',html:'The sweep replays the charging. The shaded <b>triangle area is the stored energy</b> — it is half the rectangle QV because early charges arrive when the "hill" (voltage) is still low.'})]);
+    host.addPanel('Key formulas',[FX(EM('U')+' = '+FR(MI('Q')+'²','2'+MI('C'))+' = ½'+MI('CV')+'² = ½'+MI('QV')),FX('energy density&nbsp; '+EM2('u')+' = ½ε₀'+MI('E')+'² &nbsp;J/m³ — lives in the field',1)]);
     const ro=host.Readouts([
       {key:'u',label:'Stored U = ½CV²',unit:'µJ',hl:true},
       {key:'w',label:'Battery supplied QV',unit:'µJ'},
@@ -1399,6 +1584,7 @@ registerModule({
     const ckIn=host.Check({label:'Slab inserted',value:false,onChange:v=>tgt=v?1:0});
     host.addPanel('Controls',[sK.el,seg.el,ckIn.el,
       E('p',{class:'tip',html:'Toggle the slab in and out in <b>both battery modes</b> and watch the table. With the battery connected, extra charge visibly flows in along the wires.'})]);
+    host.addPanel('Key formulas',[FX(EM('C')+' = '+MI('K')+'C₀ &nbsp;&nbsp; '+EM2('E')+' = '+FR('E₀',MI('K'))+' <span style="font-size:.75em;color:#9db6da">(Q fixed)</span>'),FX('bound charge&nbsp; Q<sub>b</sub> = '+MI('Q')+'(1 − '+FR('1',MI('K'))+')',1)]);
     const tbl=E('div',{class:'readouts'});
     const cells={};
     [['c','Capacitance C'],['q','Charge Q'],['v','Voltage V'],['e','Field E'],['u','Energy U']].forEach(([k,lab])=>{
@@ -1516,6 +1702,7 @@ registerModule({
       sX.el.style.display=mode==='part'?'':'none';
     }
     sync();
+    host.addPanel('Key formulas',[FX('side-by-side:&nbsp; '+EM('C')+' = '+FR('C₀(K₁+K₂)','2')+' &nbsp;·&nbsp; stacked:&nbsp; '+EM('C')+' = '+FR('2C₀K₁K₂','K₁+K₂'),1),FX('metal slab:&nbsp; '+EM('C')+' = '+FR('ε₀'+MI('A'),MI('d')+'−'+MI('t'))+' &nbsp;·&nbsp; slab force:&nbsp; '+EM2('F')+' = '+FR('ε₀'+MI('b')+'(K−1)'+MI('V')+'²','2'+MI('d')),1)]);
     const ro=host.Readouts([
       {key:'c',label:'C / C₀ (vs empty capacitor)',hl:true},
       {key:'f',label:'Formula in play'},
@@ -1631,6 +1818,7 @@ registerModule({
     const ck=host.Check({label:'Close the switch — connect them!',value:false,onChange:v=>{conn=v; if(!v)prog=0;}});
     host.addPanel('Controls',[s1.el,sv1.el,s2.el,sv2.el,pol.el,ck.el,
       E('p',{class:'tip',html:'Set V₂ = 0 and C₂ = 4C₁ to recreate <b>IIT-JEE 2011</b>: exactly <b>80%</b> of the energy vanishes. Then try + to − with 120 V/200 V and capacitances in ratio 5:3 — the final potential is <b>zero</b> (JEE Main 2013).'})]);
+    host.addPanel('Key formulas',[FX(EM('V')+' = '+FR('C₁V₁ ± C₂V₂','C₁ + C₂')),FX('heat&nbsp; '+EM2('ΔU')+' = '+FR('C₁C₂ (V₁ ∓ V₂)²','2(C₁+C₂)')+' — lost for ANY resistance',1)]);
     const ro=host.Readouts([
       {key:'vc',label:'Common potential',unit:'V',hl:true},
       {key:'dq',label:'Charge that flows',unit:'µC'},
@@ -1725,6 +1913,7 @@ registerModule({
     const seg=host.Segment({label:'Mode',options:[{v:'ch',label:'Charging'},{v:'dis',label:'Discharging'}],value:'ch',onChange:()=>{t0=lastT;}});
     host.addPanel('Controls',[sR.el,sC.el,sV.el,seg.el,
       E('p',{class:'tip',html:'Switching mode restarts the clock. Use <b>Speed</b> (under the canvas) to slow the first τ right down — the curve is steepest at t = 0, where i = V/R as if C were a plain wire.'})]);
+    host.addPanel('Key formulas',[FX(MI('q')+' = '+MI('CV')+'(1 − e<sup>−t/τ</sup>) &nbsp;&nbsp; '+MI('i')+' = '+FR(MI('V'),MI('R'))+'e<sup>−t/τ</sup>'),FX(EM('τ')+' = '+MI('RC')+' &nbsp;·&nbsp; t<sub>½</sub> = 0.693'+EM('τ')+' &nbsp;·&nbsp; heat in full charge = ½'+MI('CV')+'²',1)]);
     const ro=host.Readouts([
       {key:'tau',label:'Time constant τ = RC',unit:'s',hl:true},
       {key:'q',label:'q(t)',unit:'µC'},
@@ -1822,10 +2011,18 @@ registerModule({
       [sB1,sB2,sB3,sB4].forEach(s=>s.el.style.display=b?'':'none');
     }
     sync();
+    host.addPanel('Key formulas',[FX('steady state:&nbsp; '+EM('i')+'<sub>capacitor branch</sub> = 0'),FX('balanced bridge:&nbsp; '+FR('C₁','C₂')+' = '+FR('C₃','C₄')+' ⇒ delete the bridge element',1)]);
     const ro=host.Readouts([
       {key:'a',label:'—',hl:true},{key:'b',label:'—'},{key:'c',label:'—'},
     ]);
     host.addPanel('Steady-state answers',[ro.el]);
+    host.addPanel('Chapter formula sheet',[
+      FX(EM('C')+' = '+FR(MI('Q'),MI('V'))+' &nbsp; '+EM('C')+' = '+FR('ε₀'+MI('A'),MI('d'))+' &nbsp; '+EM('C')+' = '+MI('K')+'C₀',1),
+      FX('sph '+FR('4πε₀'+MI('ab'),MI('b')+'−'+MI('a'))+' &nbsp; cyl '+FR('2πε₀'+MI('L'),'ln('+MI('b')+'/'+MI('a')+')')+' &nbsp; iso 4πε₀'+MI('R'),1),
+      FX('ser '+FR('1','C<sub>eq</sub>')+'=Σ'+FR('1','C<sub>i</sub>')+' &nbsp;·&nbsp; par C<sub>eq</sub>=ΣC<sub>i</sub> &nbsp;·&nbsp; '+EM('U')+'='+FR(MI('Q')+'²','2'+MI('C'))+'=½'+MI('CV')+'²',1),
+      FX('share '+EM('V')+'='+FR('C₁V₁±C₂V₂','C₁+C₂')+' &nbsp;·&nbsp; '+EM2('ΔU')+'='+FR('C₁C₂(V₁∓V₂)²','2(C₁+C₂)'),1),
+      FX(MI('q')+'='+MI('CV')+'(1−e<sup>−t/τ</sup>) &nbsp;·&nbsp; '+EM('τ')+'='+MI('RC')+' &nbsp;·&nbsp; t<sub>½</sub>=0.693τ &nbsp;·&nbsp; '+EM2('u')+'=½ε₀'+MI('E')+'²',1),
+    ]);
     host.addJee(`<p><b>JEE Main 2017:</b> battery (E, r) + R₂, capacitor branch hanging via r₁: steady state i through C is zero ⇒ no drop on r₁ ⇒ <b>Q = CEr₂/(r+r₂)</b>. r₁ is a decoy!</p>
       <p class="q"><b>IIT-JEE 2007 (switch between two ladders):</b> caps divide V by 1/C, resistors by R. X sat at 3 V, Y at 6 V; closing S equalises them at 6 V and <b>27 µC</b> flows through the switch. Track NODE charge, not one capacitor.</p>
       <p><b>Balanced bridge reflex:</b> C₁/C₂ = C₃/C₄ ⇒ bridge element carries nothing ⇒ delete it. Works identically for R, C, even inductors — symmetry is the real lesson.</p>`);
@@ -2038,7 +2235,8 @@ registerModule({
       ]);
       wrap.appendChild(meta);
       wrap.appendChild(E('p',{class:'qtext',html:'<b>'+q.question+'</b>'}));
-      if(q.figure)wrap.appendChild(E('p',{class:'tip',html:'🖼 <i>Set-up: '+q.figure+'</i>'}));
+      if(QFIG[q.id])wrap.appendChild(E('div',{class:'qfig',html:QFIG[q.id]}));
+      else if(q.figure)wrap.appendChild(E('p',{class:'tip',html:'🖼 <i>Set-up: '+q.figure+'</i>'}));
       const box=E('div');
       if(q.type==='mcq'){
         const btns=[];
