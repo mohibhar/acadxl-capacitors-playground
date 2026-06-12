@@ -109,14 +109,14 @@ header.topbar::after{
 .meta .chip:nth-child(3)::before{background:var(--axl-orange);box-shadow:0 0 6px var(--axl-orange)}
 .meta .chip:nth-child(4)::before{background:var(--axl-violet);box-shadow:0 0 6px var(--axl-violet)}
 
-/* a live charging circuit under the hero — the chapter, alive */
+/* a live charging circuit beside the hero text — its own column, never overlaps */
+.hero{display:flex;align-items:center;gap:34px}
+.herotext{flex:1;min-width:0;position:relative}
 .herocap{
-  position:absolute;left:-18px;right:-18px;bottom:-6px;height:116px;
-  overflow:hidden;pointer-events:none;opacity:.85;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  position:relative;flex:0 0 330px;height:225px;pointer-events:none;opacity:.95;
 }
 .herocap svg{width:100%;height:100%;display:block}
+@media(max-width:940px){.herocap{display:none}}
 .hcpl{filter:drop-shadow(0 0 7px rgba(251,191,36,.8))}
 .hcpr{filter:drop-shadow(0 0 7px rgba(56,189,248,.8))}
 .hcfield{animation:hcpulse 2.8s ease-in-out infinite}
@@ -389,43 +389,8 @@ footer::before{background:linear-gradient(90deg,transparent,#8b5cf6,#22d3ee,#f47
 
 <main class="wrap" id="home">
   <section class="hero">
-    <div class="herocap" aria-hidden="true">
-      <svg viewBox="0 0 900 132" preserveAspectRatio="xMidYMax meet">
-        <defs>
-          <linearGradient id="hcf" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#fbbf24" stop-opacity=".8"/>
-            <stop offset="1" stop-color="#38bdf8" stop-opacity=".8"/>
-          </linearGradient>
-        </defs>
-        <g fill="none" stroke="rgba(168,162,204,.5)" stroke-width="2.5" stroke-linecap="round">
-          <path d="M433 38 H70 V108 H424"/>
-          <path d="M467 38 H830 V108 H476"/>
-        </g>
-        <g stroke="#e7e2ff" stroke-linecap="round">
-          <line x1="424" y1="92" x2="424" y2="124" stroke-width="3"/>
-          <line x1="476" y1="98" x2="476" y2="118" stroke-width="6.5"/>
-        </g>
-        <text x="408" y="90" fill="#fbbf24" stroke="none" font-size="13" font-weight="800">+</text>
-        <text x="486" y="90" fill="#38bdf8" stroke="none" font-size="14" font-weight="800">−</text>
-        <line class="hcpl" x1="433" y1="8" x2="433" y2="68" stroke="#fbbf24" stroke-width="5.5" stroke-linecap="round"/>
-        <line class="hcpr" x1="467" y1="8" x2="467" y2="68" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round"/>
-        <text class="hcq" x="418" y="14" fill="#fbbf24" stroke="none" font-size="11" font-weight="800">+Q</text>
-        <text class="hcq" x="472" y="14" fill="#38bdf8" stroke="none" font-size="11" font-weight="800">−Q</text>
-        <g class="hcfield" stroke="url(#hcf)" stroke-width="2" fill="#38bdf8">
-          <line x1="439" y1="22" x2="457" y2="22"/><path d="M461 22 l-7 -4 v8 Z" stroke="none"/>
-          <line x1="439" y1="40" x2="457" y2="40"/><path d="M461 40 l-7 -4 v8 Z" stroke="none"/>
-          <line x1="439" y1="58" x2="457" y2="58"/><path d="M461 58 l-7 -4 v8 Z" stroke="none"/>
-        </g>
-        <g fill="#fde047">
-          <circle r="3.4"><animateMotion dur="7s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
-          <circle r="3.4"><animateMotion dur="7s" begin="-2.3s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
-          <circle r="3.4"><animateMotion dur="7s" begin="-4.6s" repeatCount="indefinite" path="M433 38 H70 V108 H424"/></circle>
-          <circle r="3.4"><animateMotion dur="7s" repeatCount="indefinite" path="M476 108 H830 V38 H467"/></circle>
-          <circle r="3.4"><animateMotion dur="7s" begin="-2.3s" repeatCount="indefinite" path="M476 108 H830 V38 H467"/></circle>
-          <circle r="3.4"><animateMotion dur="7s" begin="-4.6s" repeatCount="indefinite" path="M476 108 H830 V38 H467"/></circle>
-        </g>
-      </svg>
-    </div>
+    
+    <div class="herotext">
     <h1>Capacitors — <span class="hl">Interactive Playground</span></h1>
     <p>Every capacitor concept of NCERT <i>Electrostatic Potential &amp; Capacitance</i>, turned into something you can <b>play with</b>. Pull plates apart, slide dielectrics in, watch charge flow and energy move — and see 20 years of JEE questions come alive.</p>
     <div class="meta">
@@ -433,6 +398,49 @@ footer::before{background:linear-gradient(90deg,transparent,#8b5cf6,#22d3ee,#f47
       <span class="chip">Live formulas &amp; readouts</span>
       <span class="chip">20 yrs of JEE Main + Advanced PYQs</span>
       <span class="chip">100% offline</span>
+    </div>
+    </div>
+    <div class="herocap" aria-hidden="true">
+      <svg viewBox="0 0 360 230" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="hcf" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#fbbf24" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#38bdf8" stop-opacity=".85"/>
+          </linearGradient>
+          <radialGradient id="hcg">
+            <stop offset="0" stop-color="#8b5cf6" stop-opacity=".30"/>
+            <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="180" cy="86" r="100" fill="url(#hcg)"/>
+        <g fill="none" stroke="rgba(168,162,204,.55)" stroke-width="2.5" stroke-linecap="round">
+          <path d="M150 70 H40 V180 H162"/>
+          <path d="M210 70 H320 V180 H198"/>
+        </g>
+        <g stroke="#e7e2ff" stroke-linecap="round">
+          <line x1="170" y1="163" x2="170" y2="197" stroke-width="3"/>
+          <line x1="190" y1="171" x2="190" y2="189" stroke-width="6.5"/>
+        </g>
+        <text x="158" y="216" fill="#fbbf24" stroke="none" font-size="13" font-weight="800">+</text>
+        <text x="196" y="216" fill="#38bdf8" stroke="none" font-size="14" font-weight="800">−</text>
+        <line class="hcpl" x1="150" y1="25" x2="150" y2="115" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+        <line class="hcpr" x1="210" y1="25" x2="210" y2="115" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+        <text class="hcq" x="132" y="16" fill="#fbbf24" stroke="none" font-size="12" font-weight="800">+Q</text>
+        <text class="hcq" x="212" y="16" fill="#38bdf8" stroke="none" font-size="12" font-weight="800">−Q</text>
+        <g class="hcfield" stroke="url(#hcf)" stroke-width="2.2" fill="#38bdf8">
+          <line x1="158" y1="45" x2="194" y2="45"/><path d="M202 45 l-9 -5 v10 Z" stroke="none"/>
+          <line x1="158" y1="70" x2="194" y2="70"/><path d="M202 70 l-9 -5 v10 Z" stroke="none"/>
+          <line x1="158" y1="95" x2="194" y2="95"/><path d="M202 95 l-9 -5 v10 Z" stroke="none"/>
+        </g>
+        <g fill="#fde047">
+          <circle r="3.6"><animateMotion dur="6.5s" repeatCount="indefinite" path="M150 70 H40 V180 H162"/></circle>
+          <circle r="3.6"><animateMotion dur="6.5s" begin="-2.2s" repeatCount="indefinite" path="M150 70 H40 V180 H162"/></circle>
+          <circle r="3.6"><animateMotion dur="6.5s" begin="-4.4s" repeatCount="indefinite" path="M150 70 H40 V180 H162"/></circle>
+          <circle r="3.6"><animateMotion dur="6.5s" repeatCount="indefinite" path="M198 180 H320 V70 H210"/></circle>
+          <circle r="3.6"><animateMotion dur="6.5s" begin="-2.2s" repeatCount="indefinite" path="M198 180 H320 V70 H210"/></circle>
+          <circle r="3.6"><animateMotion dur="6.5s" begin="-4.4s" repeatCount="indefinite" path="M198 180 H320 V70 H210"/></circle>
+        </g>
+      </svg>
     </div>
   </section>
   <p class="sectlbl">Tap any concept to open its playground</p>
